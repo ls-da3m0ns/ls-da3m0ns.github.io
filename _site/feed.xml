@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-02T09:34:22+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Beginers.tech</title><subtitle>Stuff that nobody is talking about !</subtitle><author><name>Prashant Singh</name></author><entry><title type="html">Ownership and permissions in linux</title><link href="http://localhost:4000/linux/owenership_and_permission" rel="alternate" type="text/html" title="Ownership and permissions in linux" /><published>2020-12-02T00:00:00+05:30</published><updated>2020-12-02T00:00:00+05:30</updated><id>http://localhost:4000/linux/owenership_and_permission</id><content type="html" xml:base="http://localhost:4000/linux/owenership_and_permission">&lt;p&gt;We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.&lt;/p&gt;
+
+&lt;p&gt;Linux like many other operating system is multi-user OS therefore to keep each users data safe and block unauthorized access linux enforces 2 level guard&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Ownership
+Permission
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Before we talk about how to get information about files security , to get current info about files security permission you can use ls -al this list all files and directories in current directory with its permissions and ownership details&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_1/image1.png&quot; alt=&quot;ls command demo &quot; /&gt;&lt;figcaption&gt;
+      
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;Let’s talk about Ownership of a file/directory&lt;/p&gt;
+
+&lt;p&gt;There are three types of owners&lt;/p&gt;
+
+&lt;p&gt;Owner : these permissions only apply to owner of a file/directory and not other users&lt;/p&gt;
+
+&lt;p&gt;Group : each file/directory is assigned a group, these permission affect all users in that group&lt;/p&gt;
+
+&lt;p&gt;Others : these are the permissions for all users which are not owner or part of group&lt;/p&gt;
+
+&lt;p&gt;Owner denotations&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;u : user/owner
+
+g : group
+
+o : other
+
+a : all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Changing Ownership and Groups&lt;/p&gt;
+
+&lt;p&gt;To change the ownership of a file or a directory use&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chown user’s-name filename
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To change the group of a file or a directory use&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chown group-name filename
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_1/image2.png&quot; alt=&quot;ls command demo &quot; /&gt;&lt;figcaption&gt;
+      
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;To change both user and group at the same time use&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chown user:group filename
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now let’s talk about file/directory permissions&lt;/p&gt;
+
+&lt;p&gt;So Permissions are generally represented through the use of the letters r, w and x but they can also be represented numerically.&lt;/p&gt;
+
+&lt;p&gt;The table below gives us number for all permission types&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Number      Permission Type         Symbol 
+
+0           No permission           ---
+1           execute                 --x
+2           write                   -w-
+3           write+execute           -wx
+4           read                    r--
+5           read+execute            r-x
+6           read+write              rw-
+7           read+write+execute      rwx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To change permission of a file/directory you can use&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod permissions file
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_1/image3.png&quot; alt=&quot;ls command demo &quot; /&gt;&lt;figcaption&gt;
+      
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;In numeric mode you can change permission for all three types of user at once as each digit represents owner,group,others respectively.&lt;/p&gt;
+
+&lt;p&gt;While using symbolic mode you can change permission for specific user by using mathematical symbols&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+   To add a permission 
+-   To remove a permission
+=   To set new permission and override older ones
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_1/image4.png&quot; alt=&quot;ls command demo &quot; /&gt;&lt;figcaption&gt;
+      
+
+    &lt;/figcaption&gt;&lt;/figure&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><summary type="html">We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.</summary></entry><entry><title type="html">My first post</title><link href="http://localhost:4000/demo/demopost" rel="alternate" type="text/html" title="My first post" /><published>2016-11-11T00:00:00+05:30</published><updated>2016-11-11T00:00:00+05:30</updated><id>http://localhost:4000/demo/demopost</id><content type="html" xml:base="http://localhost:4000/demo/demopost">&lt;p&gt;my first post looks just fine&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="demo" /><summary type="html">my first post looks just fine</summary></entry></feed>

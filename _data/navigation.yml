@@ -1,0 +1,16 @@
+main:
+  - title: "Resume/CV"
+    url: "https://drive.google.com/file/d/1EMp7ihqtNIjf7_u01Spa9e9m02TtAsuZ/view?usp=sharing"
+  - title: "Blogs"
+    url: /Blogs/
+  - title: "Projects / Pages"
+    url: /Pages
+  - title: "Blog Categories"
+    url: /categories/
+#  - title: "Tags"
+#    url: /tags/
+#  - title: "Collections"
+#    url: /collection-archive/
+#  - title: "Projects"
+#    url: /page-archive/
+
