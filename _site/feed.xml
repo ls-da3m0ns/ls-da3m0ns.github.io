@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-02T09:34:22+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Beginers.tech</title><subtitle>Stuff that nobody is talking about !</subtitle><author><name>Prashant Singh</name></author><entry><title type="html">Ownership and permissions in linux</title><link href="http://localhost:4000/linux/owenership_and_permission" rel="alternate" type="text/html" title="Ownership and permissions in linux" /><published>2020-12-02T00:00:00+05:30</published><updated>2020-12-02T00:00:00+05:30</updated><id>http://localhost:4000/linux/owenership_and_permission</id><content type="html" xml:base="http://localhost:4000/linux/owenership_and_permission">&lt;p&gt;We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-02T10:29:20+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Beginers.tech</title><subtitle>Stuff that nobody is talking about !</subtitle><author><name>Prashant Singh</name></author><entry><title type="html">Ownership and permissions in linux</title><link href="http://localhost:4000/linux/owenership_and_permission" rel="alternate" type="text/html" title="Ownership and permissions in linux" /><published>2020-12-02T00:00:00+05:30</published><updated>2020-12-02T00:00:00+05:30</updated><id>http://localhost:4000/linux/owenership_and_permission</id><content type="html" xml:base="http://localhost:4000/linux/owenership_and_permission">&lt;p&gt;We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.&lt;/p&gt;
 
 &lt;p&gt;Linux like many other operating system is multi-user OS therefore to keep each users data safe and block unauthorized access linux enforces 2 level guard&lt;/p&gt;
 
@@ -100,4 +100,80 @@ a : all
   &lt;img src=&quot;/assets/images/posts/blog_1/image4.png&quot; alt=&quot;ls command demo &quot; /&gt;&lt;figcaption&gt;
       
 
-    &lt;/figcaption&gt;&lt;/figure&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><summary type="html">We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.</summary></entry><entry><title type="html">My first post</title><link href="http://localhost:4000/demo/demopost" rel="alternate" type="text/html" title="My first post" /><published>2016-11-11T00:00:00+05:30</published><updated>2016-11-11T00:00:00+05:30</updated><id>http://localhost:4000/demo/demopost</id><content type="html" xml:base="http://localhost:4000/demo/demopost">&lt;p&gt;my first post looks just fine&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="demo" /><summary type="html">my first post looks just fine</summary></entry></feed>
+    &lt;/figcaption&gt;&lt;/figure&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><summary type="html">We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.</summary></entry><entry><title type="html">Systemd And Services</title><link href="http://localhost:4000/linux/systemd_and_services" rel="alternate" type="text/html" title="Systemd And Services" /><published>2020-12-02T00:00:00+05:30</published><updated>2020-12-02T00:00:00+05:30</updated><id>http://localhost:4000/linux/systemd_and_services</id><content type="html" xml:base="http://localhost:4000/linux/systemd_and_services">&lt;p&gt;What is systemd?&lt;/p&gt;
+
+&lt;p&gt;Systemd is a new Initialization system and service manager earlier initialization was done using something called SysVinit scripts but nowadays most of the linux distributions except few like Alpine, Gentoo have already shifted to systemd due to its simplicity and backwards compatibility with SysV.&lt;/p&gt;
+
+&lt;p&gt;To completely understand initialization system you would have to understand linux boot process&lt;/p&gt;
+
+&lt;p&gt;After BIOS completes hardware initialization it transfers control to bootloader.Bootloader then calls the kernel, Kernel loads initial RAM disks and looks for the root file system in system drives, once the kernel is set up it starts systemd initialization. Systemd is the first program called outside kernel space thus it has PID 1, systemd then prepares the userspace and brings OS to operational state by starting all other services.&lt;/p&gt;
+
+&lt;p&gt;What is systemctl ?&lt;/p&gt;
+
+&lt;p&gt;Systemctl is a tool to manage and control systemd service manager and init system. It helps executing tasks easily which otherwise would take a lot more time as it is easy to manage. Due to its wide adaptation it becomes necessary to get familiar with systemctl.&lt;/p&gt;
+
+&lt;p&gt;Managing services&lt;/p&gt;
+
+&lt;p&gt;Starting service&lt;/p&gt;
+
+&lt;p&gt;To start a service use start command with root previlages&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl start servicename.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can also use syntax like as systemctl is smart enough to figure it out&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_2/image1.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;Checking status of a service&lt;/p&gt;
+
+&lt;p&gt;To get current status of service you can use status command&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl status servicename.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It gives a great overview of service with information like PID, first few line of logs and cgroup hierarchy&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_2/image2.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;Stoping service&lt;/p&gt;
+
+&lt;p&gt;To stop a service you can use stop command&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl stop servicename.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_2/image3.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;Restarting and reloading service&lt;/p&gt;
+
+&lt;p&gt;To restart a service you can use restart command&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl restart servicename.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If service has capability to reload its config files then you can use reload command&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl reload servicename.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Enabling and Disabling Services&lt;/p&gt;
+
+&lt;p&gt;To automatically start a service while booting you can use enable command. This will create a symlink of unit file of service which systemd reads during initialization.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl enable servicename.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_2/image4.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;Similarly to disable a service you can use disable command this will delete the symlink created earlier&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl disable servicename.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_2/image5.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><summary type="html">What is systemd?</summary></entry><entry><title type="html">My first post</title><link href="http://localhost:4000/demo/demopost" rel="alternate" type="text/html" title="My first post" /><published>2016-11-11T00:00:00+05:30</published><updated>2016-11-11T00:00:00+05:30</updated><id>http://localhost:4000/demo/demopost</id><content type="html" xml:base="http://localhost:4000/demo/demopost">&lt;p&gt;my first post looks just fine&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="demo" /><summary type="html">my first post looks just fine</summary></entry></feed>

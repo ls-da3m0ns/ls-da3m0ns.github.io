@@ -1,0 +1,79 @@
+I"ý<p>What is systemd?</p>
+
+<p>Systemd is a new Initialization system and service manager earlier initialization was done using something called SysVinit scripts but nowadays most of the linux distributions except few like Alpine, Gentoo have already shifted to systemd due to its simplicity and backwards compatibility with SysV.</p>
+
+<p>To completely understand initialization system you would have to understand linux boot process</p>
+
+<p>After BIOS completes hardware initialization it transfers control to bootloader.Bootloader then calls the kernel, Kernel loads initial RAM disks and looks for the root file system in system drives, once the kernel is set up it starts systemd initialization. Systemd is the first program called outside kernel space thus it has PID 1, systemd then prepares the userspace and brings OS to operational state by starting all other services.</p>
+
+<p>What is systemctl ?</p>
+
+<p>Systemctl is a tool to manage and control systemd service manager and init system. It helps executing tasks easily which otherwise would take a lot more time as it is easy to manage. Due to its wide adaptation it becomes necessary to get familiar with systemctl.</p>
+
+<p>Managing services</p>
+
+<p>Starting service</p>
+
+<p>To start a service use start command with root previlages</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl start servicename.service
+</code></pre></div></div>
+
+<p>You can also use syntax like as systemctl is smart enough to figure it out</p>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_2/image1.png" alt="" /></figure>
+
+<p>Checking status of a service</p>
+
+<p>To get current status of service you can use status command</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status servicename.service
+</code></pre></div></div>
+
+<p>It gives a great overview of service with information like PID, first few line of logs and cgroup hierarchy</p>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_2/image2.png" alt="" /></figure>
+
+<p>Stoping service</p>
+
+<p>To stop a service you can use stop command</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl stop servicename.service
+</code></pre></div></div>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_2/image3.png" alt="" /></figure>
+
+<p>Restarting and reloading service</p>
+
+<p>To restart a service you can use restart command</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart servicename.service
+</code></pre></div></div>
+
+<p>If service has capability to reload its config files then you can use reload command</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl reload servicename.service
+</code></pre></div></div>
+
+<p>Enabling and Disabling Services</p>
+
+<p>To automatically start a service while booting you can use enable command. This will create a symlink of unit file of service which systemd reads during initialization.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl enable servicename.service
+</code></pre></div></div>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_2/image4.png" alt="" /></figure>
+
+<p>Similarly to disable a service you can use disable command this will delete the symlink created earlier</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl disable servicename.service
+</code></pre></div></div>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_2/image5.png" alt="" /></figure>
+
+:ET

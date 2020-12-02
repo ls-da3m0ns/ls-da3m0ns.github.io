@@ -1,0 +1,105 @@
+I"�<p>We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.</p>
+
+<p>Linux like many other operating system is multi-user OS therefore to keep each users data safe and block unauthorized access linux enforces 2 level guard</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ownership
+Permission
+</code></pre></div></div>
+
+<p>Before we talk about how to get information about files security , to get current info about files security permission you can use ls -al this list all files and directories in current directory with its permissions and ownership details</p>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_1/image1.png" alt="ls command demo " /><figcaption>
+      
+
+    </figcaption></figure>
+
+<p>Let’s talk about Ownership of a file/directory</p>
+
+<p>There are three types of owners</p>
+
+<p>Owner : these permissions only apply to owner of a file/directory and not other users</p>
+
+<p>Group : each file/directory is assigned a group, these permission affect all users in that group</p>
+
+<p>Others : these are the permissions for all users which are not owner or part of group</p>
+
+<p>Owner denotations</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>u : user/owner
+
+g : group
+
+o : other
+
+a : all
+</code></pre></div></div>
+
+<p>Changing Ownership and Groups</p>
+
+<p>To change the ownership of a file or a directory use</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chown user’s-name filename
+</code></pre></div></div>
+
+<p>To change the group of a file or a directory use</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chown group-name filename
+</code></pre></div></div>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_1/image2.png" alt="ls command demo " /><figcaption>
+      
+
+    </figcaption></figure>
+
+<p>To change both user and group at the same time use</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chown user:group filename
+</code></pre></div></div>
+
+<p>Now let’s talk about file/directory permissions</p>
+
+<p>So Permissions are generally represented through the use of the letters r, w and x but they can also be represented numerically.</p>
+
+<p>The table below gives us number for all permission types</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Number      Permission Type         Symbol 
+
+0           No permission           ---
+1           execute                 --x
+2           write                   -w-
+3           write+execute           -wx
+4           read                    r--
+5           read+execute            r-x
+6           read+write              rw-
+7           read+write+execute      rwx
+</code></pre></div></div>
+
+<p>To change permission of a file/directory you can use</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod permissions file
+</code></pre></div></div>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_1/image3.png" alt="ls command demo " /><figcaption>
+      
+
+    </figcaption></figure>
+
+<p>In numeric mode you can change permission for all three types of user at once as each digit represents owner,group,others respectively.</p>
+
+<p>While using symbolic mode you can change permission for specific user by using mathematical symbols</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+   To add a permission 
+-   To remove a permission
+=   To set new permission and override older ones
+</code></pre></div></div>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_1/image4.png" alt="ls command demo " /><figcaption>
+      
+
+    </figcaption></figure>
+
+:ET
