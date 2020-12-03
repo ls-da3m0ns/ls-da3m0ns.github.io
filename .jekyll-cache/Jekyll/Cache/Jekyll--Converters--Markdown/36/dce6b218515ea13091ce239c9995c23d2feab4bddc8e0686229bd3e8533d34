@@ -1,0 +1,26 @@
+I"L
+<p>Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descriptor. It will create an open file description that refers to a file and a file descriptor that refers to that open file description. The file descriptor is used by other I/O functions to refer to the file.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int open(const char *pathname, int flags, mode_t mode);
+</code></pre></div></div>
+
+<p>The function open( ) opens the file specified by pathname. If the specified file does not exist it may optionally be created by providing the<b> O_CREAT</b> flag in open( ). The argument flags must include one of the following access modes: <b>O_RDONLY</b>, <b>O_WRONLY</b>,<b> or O_RDWR </b>. These requests open the file in read-only, write-only, or read/write modes, respectively.</p>
+
+<p>In addition, zero or more file creation flags and file status flags can be bitwise-or%u2019d in flags. The file creation flags affect the semantics of the open operation itself while the file status flag affects the semantics of subsequent I/O operations.</p>
+
+<p><b> Bitwise-or of O_RDONLY and O_SYNC flag:</b></p>
+
+<p>Synchronized I/O specifies the open() flags O_SYNC,O_DSYNC, and O_RSYNC for controlling the behaviour. Regardless of whether an implementation supports this option, it must at least support the use of O_SYSNC for regular files.</p>
+
+<p>Linux implements O_SYNC and O_DSYNC, but not O_RSYNC. Somewhat incorrectly, glibc defines O_RSYNC to have the same value as O_SYNC.</p>
+
+<p>O_SYNC provides synchronized I/O file integrity completion, meaning write operations will flush data and all associated metadata to the underlying hardware.</p>
+
+<p>O_DSYNC provides synchronized I/O data integrity completion, meaning write operations will flush data to the underlying hardware, but will only flush metadata updates that are required to allow a subsequent read operation to complete successfully.</p>
+
+<p>Data integrity completion can reduce the number of disk operations that are required for applications that don’t need the guarantees of file integrity completion.</p>
+
+<p>Since Linux 2.6.33, proper O_SYNC support has been provided. However, to ensure backward binary compatibility, O_DSYNC was defined with the same value as the historical O_SYNC, and O_SYNC was defined as a new (two-bit) flag value that includes the O_DSYNC flag value.</p>
+
+<p>This ensures that applications compiled against new headers get at least O_DSYNC semantics on pre-2.6.33 kernels.</p>
+:ET

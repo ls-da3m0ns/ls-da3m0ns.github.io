@@ -1,0 +1,49 @@
+I"j<p>Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a huge bottle neck for Computers this problem is resolved by using something called CPU cache.</p>
+
+<p>In Computers mainly there are two type of memory</p>
+
+<p><b>DRAM (dynamic ram )</b></p>
+
+<p>These use capacitors and because of that they need to be constantly refreshed using electricity. DRAMs are generally slower than SRAM. A great example of DRAM is RAM.</p>
+
+<p><b>SRAM (static ram)</b></p>
+
+<p>SRAM uses flip flop thus having greater speed and does not need to be refreshed constantly, but SRAM are more expensive than DRAM. They are generally used in CPU cache.</p>
+
+<p>CPU cache is also called internal memory of CPU, it stores copies of data and instruction from RAM, CPU constantly needs files from RAM CPU cache acts as middle man and stores most frequently requested files by CPU thus increasing efficiency of processor.</p>
+
+<p>There are three types of CPU cache L1(further split into L1d (data) and L1i (instruction) ) L2 and L3</p>
+
+<p>In Linux based OS we can use lscpu command to get capacity of each type of cache</p>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_5/image1.png" alt="" /></figure>
+
+<p><b>L1 cache</b></p>
+
+<p>It is located on the processor and every processor has its own L1 cache. L1 cache is the fastest cache in the computer and runs at the same speed as that of the processor.</p>
+
+<p>L1 cache is nowadays splitted between L1d (Data) and L1i (instruction)</p>
+
+<p><b>L2 cache</b></p>
+
+<p>L2 cache is also known as external cache, as the name suggests it is located outside the processor (core). It stores recent data accessed by CPU which are not stored in L1 cache. If the CPU can’t find data in L1 cache it looks in L2 cache.</p>
+
+<p><b>L3 cache</b></p>
+
+<p>L3 cache is also called shared cache as it is shared between all the processors. It stores recent data accessed by CPU which is not available in both L1 or L2 cache . If CPU doesn’t finds data here then it will have to request data from much slower memory RAM</p>
+
+<p><b>How cache stores data</b></p>
+
+<p>In every program, there are usually a few instructions that repeat again and again, whereas the rest are executed only once or twice. Those repeating part of code is sent straight to cache, But these codes lines are not consecutive so a “label” is assigned to each cache position, the label is equal to the position of that code line in the ROM. Hence when CPU ask for a code line</p>
+
+<p>first requested ROM possition is compared with all the labels in the cache. If there is a match (also called cache hit) then associated code line from cache is extracted.</p>
+
+<p>If there is no match (also called cache miss ) code is extracted from ROM, naturally in this case time taken will be more than usual.</p>
+
+<p>also a new entry is created in cache for each miss, and to create this space least-recently used cache entry is deleted</p>
+
+<p><b>Why CPU cache is faster?</b></p>
+
+<p>Along side each cached line of memory there are extra memory cells that store part(or all ) of the address. therefore all the cells can be queried to see whether they have the particular line of memory that cpu wants and then data will dump it onto bus that connects the main memory to the processor core. this happens in less than a cycle, because it is much simpler</p>
+:ET

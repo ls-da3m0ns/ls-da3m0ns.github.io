@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Systemd And Services | Beginers.tech</title>
-<meta name="description" content="What is systemd?">
+<!-- begin _includes/seo.html --><title>Use of O_SYNC flag while opening file | Beginers.tech</title>
+<meta name="description" content="Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descriptor. It will create an open file description that refers to a file and a file descriptor that refers to that open file description. The file descriptor is used by other I/O functions to refer to the file.">
 
 
   <meta name="author" content="Prashant Singh">
@@ -22,33 +22,33 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Beginers.tech">
-<meta property="og:title" content="Systemd And Services">
-<meta property="og:url" content="http://localhost:4000/linux/systemd_and_services">
+<meta property="og:title" content="Use of O_SYNC flag while opening file">
+<meta property="og:url" content="http://localhost:4000/linux/osync">
 
 
-  <meta property="og:description" content="What is systemd?">
+  <meta property="og:description" content="Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descriptor. It will create an open file description that refers to a file and a file descriptor that refers to that open file description. The file descriptor is used by other I/O functions to refer to the file.">
 
 
 
-  <meta property="og:image" content="http://localhost:4000/assets/images/posts/blog_2/image1.png">
+  <meta property="og:image" content="http://localhost:4000/assets/images/posts/blog_6/image1.png">
 
 
 
   <meta name="twitter:site" content="@ls_da3mons">
-  <meta name="twitter:title" content="Systemd And Services">
-  <meta name="twitter:description" content="What is systemd?">
-  <meta name="twitter:url" content="http://localhost:4000/linux/systemd_and_services">
+  <meta name="twitter:title" content="Use of O_SYNC flag while opening file">
+  <meta name="twitter:description" content="Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descriptor. It will create an open file description that refers to a file and a file descriptor that refers to that open file description. The file descriptor is used by other I/O functions to refer to the file.">
+  <meta name="twitter:url" content="http://localhost:4000/linux/osync">
 
   
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="http://localhost:4000/assets/images/posts/blog_2/image1.png">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/posts/blog_6/image1.png">
   
 
   
 
 
 
-  <meta property="article:published_time" content="2020-12-02T00:00:00+05:30">
+  <meta property="article:published_time" content="2020-12-03T00:00:00+05:30">
 
 
 
@@ -59,7 +59,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/linux/systemd_and_services">
+<link rel="canonical" href="http://localhost:4000/linux/osync">
 
 
 
@@ -187,18 +187,18 @@
 
 
 <div class="page__hero--overlay"
-  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/assets/images/posts/blog_2/image1.png');"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/assets/images/posts/blog_6/image1.png');"
 >
   
     <div class="wrapper">
       <h1 id="page-title" class="page__title" itemprop="headline">
         
-          Systemd And Services
+          Use of O_SYNC flag while opening file
 
         
       </h1>
       
-        <p class="page__lead">What is systemd?
+        <p class="page__lead">Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descriptor. It will create an open file description that refers to a file and a file descriptor that refers to that open file description. The file descriptor is used by other I/O functions to refer to the file.
 </p>
       
       
@@ -208,7 +208,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2020-12-02T00:00:00+05:30">December 2, 2020</time>
+        <time datetime="2020-12-03T00:00:00+05:30">December 3, 2020</time>
       </span>
     
 
@@ -364,9 +364,9 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Systemd And Services">
-    <meta itemprop="description" content="What is systemd?">
-    <meta itemprop="datePublished" content="2020-12-02T00:00:00+05:30">
+    <meta itemprop="headline" content="Use of O_SYNC flag while opening file">
+    <meta itemprop="description" content="Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descriptor. It will create an open file description that refers to a file and a file descriptor that refers to that open file description. The file descriptor is used by other I/O functions to refer to the file.">
+    <meta itemprop="datePublished" content="2020-12-03T00:00:00+05:30">
     
 
     <div class="page__inner-wrap">
@@ -374,84 +374,30 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>What is systemd?</p>
+        <p>Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descriptor. It will create an open file description that refers to a file and a file descriptor that refers to that open file description. The file descriptor is used by other I/O functions to refer to the file.</p>
 
-<p>Systemd is a new Initialization system and service manager earlier initialization was done using something called SysVinit scripts but nowadays most of the linux distributions except few like Alpine, Gentoo have already shifted to systemd due to its simplicity and backwards compatibility with SysV.</p>
-
-<p>To completely understand initialization system you would have to understand linux boot process</p>
-
-<p>After BIOS completes hardware initialization it transfers control to bootloader.Bootloader then calls the kernel, Kernel loads initial RAM disks and looks for the root file system in system drives, once the kernel is set up it starts systemd initialization. Systemd is the first program called outside kernel space thus it has PID 1, systemd then prepares the userspace and brings OS to operational state by starting all other services.</p>
-
-<p>What is systemctl ?</p>
-
-<p>Systemctl is a tool to manage and control systemd service manager and init system. It helps executing tasks easily which otherwise would take a lot more time as it is easy to manage. Due to its wide adaptation it becomes necessary to get familiar with systemctl.</p>
-
-<p>Managing services</p>
-
-<p>Starting service</p>
-
-<p>To start a service use start command with root previlages</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl start servicename.service
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int open(const char *pathname, int flags, mode_t mode);
 </code></pre></div></div>
 
-<p>You can also use syntax like as systemctl is smart enough to figure it out</p>
+<p>The function open( ) opens the file specified by pathname. If the specified file does not exist it may optionally be created by providing the<b> O_CREAT</b> flag in open( ). The argument flags must include one of the following access modes: <b>O_RDONLY</b>, <b>O_WRONLY</b>,<b> or O_RDWR </b>. These requests open the file in read-only, write-only, or read/write modes, respectively.</p>
 
-<figure class="">
-  <img src="/assets/images/posts/blog_2/image1.png" alt="" /></figure>
+<p>In addition, zero or more file creation flags and file status flags can be bitwise-or%u2019d in flags. The file creation flags affect the semantics of the open operation itself while the file status flag affects the semantics of subsequent I/O operations.</p>
 
-<p>Checking status of a service</p>
+<p><b> Bitwise-or of O_RDONLY and O_SYNC flag:</b></p>
 
-<p>To get current status of service you can use status command</p>
+<p>Synchronized I/O specifies the open() flags O_SYNC,O_DSYNC, and O_RSYNC for controlling the behaviour. Regardless of whether an implementation supports this option, it must at least support the use of O_SYSNC for regular files.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status servicename.service
-</code></pre></div></div>
+<p>Linux implements O_SYNC and O_DSYNC, but not O_RSYNC. Somewhat incorrectly, glibc defines O_RSYNC to have the same value as O_SYNC.</p>
 
-<p>It gives a great overview of service with information like PID, first few line of logs and cgroup hierarchy</p>
+<p>O_SYNC provides synchronized I/O file integrity completion, meaning write operations will flush data and all associated metadata to the underlying hardware.</p>
 
-<figure class="">
-  <img src="/assets/images/posts/blog_2/image2.png" alt="" /></figure>
+<p>O_DSYNC provides synchronized I/O data integrity completion, meaning write operations will flush data to the underlying hardware, but will only flush metadata updates that are required to allow a subsequent read operation to complete successfully.</p>
 
-<p>Stoping service</p>
+<p>Data integrity completion can reduce the number of disk operations that are required for applications that don’t need the guarantees of file integrity completion.</p>
 
-<p>To stop a service you can use stop command</p>
+<p>Since Linux 2.6.33, proper O_SYNC support has been provided. However, to ensure backward binary compatibility, O_DSYNC was defined with the same value as the historical O_SYNC, and O_SYNC was defined as a new (two-bit) flag value that includes the O_DSYNC flag value.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl stop servicename.service
-</code></pre></div></div>
-
-<figure class="">
-  <img src="/assets/images/posts/blog_2/image3.png" alt="" /></figure>
-
-<p>Restarting and reloading service</p>
-
-<p>To restart a service you can use restart command</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart servicename.service
-</code></pre></div></div>
-
-<p>If service has capability to reload its config files then you can use reload command</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl reload servicename.service
-</code></pre></div></div>
-
-<p>Enabling and Disabling Services</p>
-
-<p>To automatically start a service while booting you can use enable command. This will create a symlink of unit file of service which systemd reads during initialization.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl enable servicename.service
-</code></pre></div></div>
-
-<figure class="">
-  <img src="/assets/images/posts/blog_2/image4.png" alt="" /></figure>
-
-<p>Similarly to disable a service you can use disable command this will delete the symlink created earlier</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl disable servicename.service
-</code></pre></div></div>
-
-<figure class="">
-  <img src="/assets/images/posts/blog_2/image5.png" alt="" /></figure>
-
+<p>This ensures that applications compiled against new headers get at least O_DSYNC semantics on pre-2.6.33 kernels.</p>
 
         
       </section>
@@ -474,6 +420,10 @@
     
       
       
+      <a href="/categories/#linux" class="page__taxonomy-item" rel="tag">Linux</a><span class="sep">, </span>
+    
+      
+      
       <a href="/categories/#linux" class="page__taxonomy-item" rel="tag">linux</a>
     
     </span>
@@ -481,7 +431,7 @@
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-12-02T00:00:00+05:30">December 2, 2020</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-12-03T00:00:00+05:30">December 3, 2020</time></p>
 
 
       </footer>
@@ -491,22 +441,22 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=%40ls_da3mons&text=Systemd+And+Services%20http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fsystemd_and_services" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=%40ls_da3mons&text=Use+of+O_SYNC+flag+while+opening+file%20http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fosync" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fsystemd_and_services" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fosync" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fsystemd_and_services" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fosync" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/linux/owenership_and_permission" class="pagination--pager" title="Ownership and permissions in linux
+      <a href="/linux/l1l2l3" class="pagination--pager" title="What are L1,L2 and L3 cache
 ">Previous</a>
     
     
-      <a href="/linux/systemd_and_units" class="pagination--pager" title="Systemd and Units
+      <a href="/linux/pscommand" class="pagination--pager" title="Why running ps command without options on shell shows only two entries
 ">Next</a>
     
   </nav>
@@ -634,55 +584,6 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/linux/osync" rel="permalink">Use of O_SYNC flag while opening file
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2020-12-03T00:00:00+05:30">December 3, 2020</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descr...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src="/assets/images/default_overlay.png" alt="">
-      </div>
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
         <a href="/linux/l1l2l3" rel="permalink">What are L1,L2 and L3 cache
 </a>
       
@@ -715,6 +616,56 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/default_overlay.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/systemd_and_units" rel="permalink">Systemd and Units
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-12-02T00:00:00+05:30">December 2, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">What are units?
+</p>
   </article>
 </div>
 

@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Systemd And Services | Beginers.tech</title>
-<meta name="description" content="What is systemd?">
+<!-- begin _includes/seo.html --><title>Why running ps command without options on shell shows only two entries | Beginers.tech</title>
+<meta name="description" content="What is ps command?">
 
 
   <meta name="author" content="Prashant Singh">
@@ -22,33 +22,33 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Beginers.tech">
-<meta property="og:title" content="Systemd And Services">
-<meta property="og:url" content="http://localhost:4000/linux/systemd_and_services">
+<meta property="og:title" content="Why running ps command without options on shell shows only two entries">
+<meta property="og:url" content="http://localhost:4000/linux/pscommand">
 
 
-  <meta property="og:description" content="What is systemd?">
+  <meta property="og:description" content="What is ps command?">
 
 
 
-  <meta property="og:image" content="http://localhost:4000/assets/images/posts/blog_2/image1.png">
+  <meta property="og:image" content="http://localhost:4000/assets/images/posts/blog_7/image1.png">
 
 
 
   <meta name="twitter:site" content="@ls_da3mons">
-  <meta name="twitter:title" content="Systemd And Services">
-  <meta name="twitter:description" content="What is systemd?">
-  <meta name="twitter:url" content="http://localhost:4000/linux/systemd_and_services">
+  <meta name="twitter:title" content="Why running ps command without options on shell shows only two entries">
+  <meta name="twitter:description" content="What is ps command?">
+  <meta name="twitter:url" content="http://localhost:4000/linux/pscommand">
 
   
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="http://localhost:4000/assets/images/posts/blog_2/image1.png">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/posts/blog_7/image1.png">
   
 
   
 
 
 
-  <meta property="article:published_time" content="2020-12-02T00:00:00+05:30">
+  <meta property="article:published_time" content="2020-12-03T00:00:00+05:30">
 
 
 
@@ -59,7 +59,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/linux/systemd_and_services">
+<link rel="canonical" href="http://localhost:4000/linux/pscommand">
 
 
 
@@ -187,18 +187,18 @@
 
 
 <div class="page__hero--overlay"
-  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/assets/images/posts/blog_2/image1.png');"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/assets/images/posts/blog_7/image1.png');"
 >
   
     <div class="wrapper">
       <h1 id="page-title" class="page__title" itemprop="headline">
         
-          Systemd And Services
+          Why running ps command without options on shell shows only two entries
 
         
       </h1>
       
-        <p class="page__lead">What is systemd?
+        <p class="page__lead"><b> What is ps command?</b>
 </p>
       
       
@@ -208,7 +208,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2020-12-02T00:00:00+05:30">December 2, 2020</time>
+        <time datetime="2020-12-03T00:00:00+05:30">December 3, 2020</time>
       </span>
     
 
@@ -364,9 +364,9 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Systemd And Services">
-    <meta itemprop="description" content="What is systemd?">
-    <meta itemprop="datePublished" content="2020-12-02T00:00:00+05:30">
+    <meta itemprop="headline" content="Why running ps command without options on shell shows only two entries">
+    <meta itemprop="description" content=" What is ps command?">
+    <meta itemprop="datePublished" content="2020-12-03T00:00:00+05:30">
     
 
     <div class="page__inner-wrap">
@@ -374,84 +374,59 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>What is systemd?</p>
+        <p><b> What is ps command?</b></p>
 
-<p>Systemd is a new Initialization system and service manager earlier initialization was done using something called SysVinit scripts but nowadays most of the linux distributions except few like Alpine, Gentoo have already shifted to systemd due to its simplicity and backwards compatibility with SysV.</p>
+<p>ps also known as “Process status” is a command in linux which provides information about the current running process. ps command accepts several kinds of options like -</p>
 
-<p>To completely understand initialization system you would have to understand linux boot process</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UNIX option : which are always preceded by dash
 
-<p>After BIOS completes hardware initialization it transfers control to bootloader.Bootloader then calls the kernel, Kernel loads initial RAM disks and looks for the root file system in system drives, once the kernel is set up it starts systemd initialization. Systemd is the first program called outside kernel space thus it has PID 1, systemd then prepares the userspace and brings OS to operational state by starting all other services.</p>
+BSD options : which are not preceded by dash
 
-<p>What is systemctl ?</p>
-
-<p>Systemctl is a tool to manage and control systemd service manager and init system. It helps executing tasks easily which otherwise would take a lot more time as it is easy to manage. Due to its wide adaptation it becomes necessary to get familiar with systemctl.</p>
-
-<p>Managing services</p>
-
-<p>Starting service</p>
-
-<p>To start a service use start command with root previlages</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl start servicename.service
+GNU options : which are preceded by double dash
 </code></pre></div></div>
 
-<p>You can also use syntax like as systemctl is smart enough to figure it out</p>
+<p><b>Why does ps only show 2 items?</b></p>
+
+<p>So when you run only “ps” command it only shows the process associated with the current terminal and with the same effective user id (euid) as that of the current user. In most cases it’s only two processes that run with that config but more processes can be created and displayed in ps command output.</p>
+
+<p>To verify the same we can run a ping command from the current user and terminal then see the output of the “ps”, we will also verify the parent pid of the process.</p>
 
 <figure class="">
-  <img src="/assets/images/posts/blog_2/image1.png" alt="" /></figure>
+  <img src="/assets/images/posts/blog_7/image1.png" alt="" /></figure>
 
-<p>Checking status of a service</p>
+<p>As you can see bash is the parent of both the process and the user is home.</p>
 
-<p>To get current status of service you can use status command</p>
+<p><b>Common ways of using ps command</b></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status servicename.service
+<p>ps can be paired with many arguments but some of them are more used than others those are</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps -aux
 </code></pre></div></div>
 
-<p>It gives a great overview of service with information like PID, first few line of logs and cgroup hierarchy</p>
+<p>This is perhaps the most widely used configuration of ps command as it lists detailed info of all the process of all the users on a system. Apart from the process associated with the terminal it also lists demons running in the background.</p>
 
-<figure class="">
-  <img src="/assets/images/posts/blog_2/image2.png" alt="" /></figure>
+<p>It can then be piped into other commands for more formatted and specific info like</p>
 
-<p>Stoping service</p>
-
-<p>To stop a service you can use stop command</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl stop servicename.service
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps -aux | less
 </code></pre></div></div>
 
 <figure class="">
-  <img src="/assets/images/posts/blog_2/image3.png" alt="" /></figure>
+  <img src="/assets/images/posts/blog_7/image2.png" alt="" /></figure>
 
-<p>Restarting and reloading service</p>
-
-<p>To restart a service you can use restart command</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart servicename.service
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps -elf
 </code></pre></div></div>
 
-<p>If service has capability to reload its config files then you can use reload command</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl reload servicename.service
-</code></pre></div></div>
-
-<p>Enabling and Disabling Services</p>
-
-<p>To automatically start a service while booting you can use enable command. This will create a symlink of unit file of service which systemd reads during initialization.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl enable servicename.service
-</code></pre></div></div>
+<p>This is an alternative for viewing every process running in a system. It creates a table with 15 column.</p>
 
 <figure class="">
-  <img src="/assets/images/posts/blog_2/image4.png" alt="" /></figure>
+  <img src="/assets/images/posts/blog_7/image3.png" alt="" /></figure>
 
-<p>Similarly to disable a service you can use disable command this will delete the symlink created earlier</p>
+<p><b>From where does the “ps” command get all the info?</b></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl disable servicename.service
-</code></pre></div></div>
+<p>ps command does not need any special permission like sudo because it reads the files present in /proc directory. The /proc directory is a special directory as it is the mount point of the proc filesystem which contains virtual files representing each process in the system with their pid as name.</p>
 
 <figure class="">
-  <img src="/assets/images/posts/blog_2/image5.png" alt="" /></figure>
-
+  <img src="/assets/images/posts/blog_7/image4.png" alt="" /></figure>
 
         
       </section>
@@ -481,7 +456,7 @@
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-12-02T00:00:00+05:30">December 2, 2020</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-12-03T00:00:00+05:30">December 3, 2020</time></p>
 
 
       </footer>
@@ -491,22 +466,22 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=%40ls_da3mons&text=Systemd+And+Services%20http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fsystemd_and_services" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=%40ls_da3mons&text=Why+running+ps+command+without+options+on+shell+shows+only+two+entries%20http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fpscommand" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fsystemd_and_services" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fpscommand" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fsystemd_and_services" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fpscommand" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/linux/owenership_and_permission" class="pagination--pager" title="Ownership and permissions in linux
+      <a href="/linux/osync" class="pagination--pager" title="Use of O_SYNC flag while opening file
 ">Previous</a>
     
     
-      <a href="/linux/systemd_and_units" class="pagination--pager" title="Systemd and Units
+      <a href="/linux/ml/stamina" class="pagination--pager" title="Deep Learning Approach in detecting Malware (STAMINA)
 ">Next</a>
     
   </nav>
@@ -567,56 +542,6 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">Intel Labs and Microsoft Threat Protection Intelligence Teams are collaborating to research the application of deep learning for malware threat detection. In...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src="/assets/images/default_overlay.png" alt="">
-      </div>
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/pscommand" rel="permalink">Why running ps command without options on shell shows only two entries
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2020-12-03T00:00:00+05:30">December 3, 2020</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description"> What is ps command?
-</p>
   </article>
 </div>
 
@@ -715,6 +640,56 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/default_overlay.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/systemd_and_units" rel="permalink">Systemd and Units
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-12-02T00:00:00+05:30">December 2, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">What are units?
+</p>
   </article>
 </div>
 

@@ -273,8 +273,8 @@ defaults:
       path: ""
       type: posts
     values:
-      class: wide
-      date: 2020-12-04
+      classes: wide
+    #  date: 2020-12-04
       title: blog
       layout: single
       show_date: true

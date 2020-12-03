@@ -1,4 +1,126 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-03T18:55:49+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Beginers.tech</title><subtitle>Stuff that nobody is talking about !</subtitle><author><name>Prashant Singh</name></author><entry><title type="html">Deep Learning Approach in detecting Malware (STAMINA)</title><link href="http://localhost:4000/linux/stamina" rel="alternate" type="text/html" title="Deep Learning Approach in detecting Malware (STAMINA)" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>http://localhost:4000/linux/stamina</id><content type="html" xml:base="http://localhost:4000/linux/stamina">&lt;p&gt;Intel Labs and Microsoft Threat Protection Intelligence Teams are collaborating to research the application of deep learning for malware threat detection. Intel and Microsoft have previously demonstrated that transfer learning from computer vision for malware analysis can achieve highly desirable classification performance.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-03T19:34:12+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Beginers.tech</title><subtitle>Stuff that nobody is talking about !</subtitle><author><name>Prashant Singh</name></author><entry><title type="html">What are L1,L2 and L3 cache</title><link href="http://localhost:4000/linux/l1l2l3" rel="alternate" type="text/html" title="What are L1,L2 and L3 cache" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>http://localhost:4000/linux/l1l2l3</id><content type="html" xml:base="http://localhost:4000/linux/l1l2l3">&lt;p&gt;Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a huge bottle neck for Computers this problem is resolved by using something called CPU cache.&lt;/p&gt;
+
+&lt;p&gt;In Computers mainly there are two type of memory&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;DRAM (dynamic ram )&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;These use capacitors and because of that they need to be constantly refreshed using electricity. DRAMs are generally slower than SRAM. A great example of DRAM is RAM.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;SRAM (static ram)&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;SRAM uses flip flop thus having greater speed and does not need to be refreshed constantly, but SRAM are more expensive than DRAM. They are generally used in CPU cache.&lt;/p&gt;
+
+&lt;p&gt;CPU cache is also called internal memory of CPU, it stores copies of data and instruction from RAM, CPU constantly needs files from RAM CPU cache acts as middle man and stores most frequently requested files by CPU thus increasing efficiency of processor.&lt;/p&gt;
+
+&lt;p&gt;There are three types of CPU cache L1(further split into L1d (data) and L1i (instruction) ) L2 and L3&lt;/p&gt;
+
+&lt;p&gt;In Linux based OS we can use lscpu command to get capacity of each type of cache&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_5/image1.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;b&gt;L1 cache&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;It is located on the processor and every processor has its own L1 cache. L1 cache is the fastest cache in the computer and runs at the same speed as that of the processor.&lt;/p&gt;
+
+&lt;p&gt;L1 cache is nowadays splitted between L1d (Data) and L1i (instruction)&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;L2 cache&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;L2 cache is also known as external cache, as the name suggests it is located outside the processor (core). It stores recent data accessed by CPU which are not stored in L1 cache. If the CPU can’t find data in L1 cache it looks in L2 cache.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;L3 cache&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;L3 cache is also called shared cache as it is shared between all the processors. It stores recent data accessed by CPU which is not available in both L1 or L2 cache . If CPU doesn’t finds data here then it will have to request data from much slower memory RAM&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;How cache stores data&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;In every program, there are usually a few instructions that repeat again and again, whereas the rest are executed only once or twice. Those repeating part of code is sent straight to cache, But these codes lines are not consecutive so a “label” is assigned to each cache position, the label is equal to the position of that code line in the ROM. Hence when CPU ask for a code line&lt;/p&gt;
+
+&lt;p&gt;first requested ROM possition is compared with all the labels in the cache. If there is a match (also called cache hit) then associated code line from cache is extracted.&lt;/p&gt;
+
+&lt;p&gt;If there is no match (also called cache miss ) code is extracted from ROM, naturally in this case time taken will be more than usual.&lt;/p&gt;
+
+&lt;p&gt;also a new entry is created in cache for each miss, and to create this space least-recently used cache entry is deleted&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Why CPU cache is faster?&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Along side each cached line of memory there are extra memory cells that store part(or all ) of the address. therefore all the cells can be queried to see whether they have the particular line of memory that cpu wants and then data will dump it onto bus that connects the main memory to the processor core. this happens in less than a cycle, because it is much simpler&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="Linux" /><summary type="html">Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a huge bottle neck for Computers this problem is resolved by using something called CPU cache.</summary></entry><entry><title type="html">Use of O_SYNC flag while opening file</title><link href="http://localhost:4000/linux/osync" rel="alternate" type="text/html" title="Use of O_SYNC flag while opening file" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>http://localhost:4000/linux/osync</id><content type="html" xml:base="http://localhost:4000/linux/osync">&lt;p&gt;Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descriptor. It will create an open file description that refers to a file and a file descriptor that refers to that open file description. The file descriptor is used by other I/O functions to refer to the file.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int open(const char *pathname, int flags, mode_t mode);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The function open( ) opens the file specified by pathname. If the specified file does not exist it may optionally be created by providing the&lt;b&gt; O_CREAT&lt;/b&gt; flag in open( ). The argument flags must include one of the following access modes: &lt;b&gt;O_RDONLY&lt;/b&gt;, &lt;b&gt;O_WRONLY&lt;/b&gt;,&lt;b&gt; or O_RDWR &lt;/b&gt;. These requests open the file in read-only, write-only, or read/write modes, respectively.&lt;/p&gt;
+
+&lt;p&gt;In addition, zero or more file creation flags and file status flags can be bitwise-or%u2019d in flags. The file creation flags affect the semantics of the open operation itself while the file status flag affects the semantics of subsequent I/O operations.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt; Bitwise-or of O_RDONLY and O_SYNC flag:&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Synchronized I/O specifies the open() flags O_SYNC,O_DSYNC, and O_RSYNC for controlling the behaviour. Regardless of whether an implementation supports this option, it must at least support the use of O_SYSNC for regular files.&lt;/p&gt;
+
+&lt;p&gt;Linux implements O_SYNC and O_DSYNC, but not O_RSYNC. Somewhat incorrectly, glibc defines O_RSYNC to have the same value as O_SYNC.&lt;/p&gt;
+
+&lt;p&gt;O_SYNC provides synchronized I/O file integrity completion, meaning write operations will flush data and all associated metadata to the underlying hardware.&lt;/p&gt;
+
+&lt;p&gt;O_DSYNC provides synchronized I/O data integrity completion, meaning write operations will flush data to the underlying hardware, but will only flush metadata updates that are required to allow a subsequent read operation to complete successfully.&lt;/p&gt;
+
+&lt;p&gt;Data integrity completion can reduce the number of disk operations that are required for applications that don’t need the guarantees of file integrity completion.&lt;/p&gt;
+
+&lt;p&gt;Since Linux 2.6.33, proper O_SYNC support has been provided. However, to ensure backward binary compatibility, O_DSYNC was defined with the same value as the historical O_SYNC, and O_SYNC was defined as a new (two-bit) flag value that includes the O_DSYNC flag value.&lt;/p&gt;
+
+&lt;p&gt;This ensures that applications compiled against new headers get at least O_DSYNC semantics on pre-2.6.33 kernels.&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="Linux" /><summary type="html">Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descriptor. It will create an open file description that refers to a file and a file descriptor that refers to that open file description. The file descriptor is used by other I/O functions to refer to the file.</summary></entry><entry><title type="html">Why running ps command without options on shell shows only two entries</title><link href="http://localhost:4000/linux/pscommand" rel="alternate" type="text/html" title="Why running ps command without options on shell shows only two entries" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>http://localhost:4000/linux/pscommand</id><content type="html" xml:base="http://localhost:4000/linux/pscommand">&lt;p&gt;&lt;b&gt; What is ps command?&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;ps also known as “Process status” is a command in linux which provides information about the current running process. ps command accepts several kinds of options like -&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;UNIX option : which are always preceded by dash
+
+BSD options : which are not preceded by dash
+
+GNU options : which are preceded by double dash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;b&gt;Why does ps only show 2 items?&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;So when you run only “ps” command it only shows the process associated with the current terminal and with the same effective user id (euid) as that of the current user. In most cases it’s only two processes that run with that config but more processes can be created and displayed in ps command output.&lt;/p&gt;
+
+&lt;p&gt;To verify the same we can run a ping command from the current user and terminal then see the output of the “ps”, we will also verify the parent pid of the process.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_7/image1.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;As you can see bash is the parent of both the process and the user is home.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Common ways of using ps command&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;ps can be paired with many arguments but some of them are more used than others those are&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ps -aux
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is perhaps the most widely used configuration of ps command as it lists detailed info of all the process of all the users on a system. Apart from the process associated with the terminal it also lists demons running in the background.&lt;/p&gt;
+
+&lt;p&gt;It can then be piped into other commands for more formatted and specific info like&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ps -aux | less
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_7/image2.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ps -elf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is an alternative for viewing every process running in a system. It creates a table with 15 column.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_7/image3.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;b&gt;From where does the “ps” command get all the info?&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;ps command does not need any special permission like sudo because it reads the files present in /proc directory. The /proc directory is a special directory as it is the mount point of the proc filesystem which contains virtual files representing each process in the system with their pid as name.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_7/image4.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><summary type="html">What is ps command?</summary></entry><entry><title type="html">Deep Learning Approach in detecting Malware (STAMINA)</title><link href="http://localhost:4000/linux/ml/stamina" rel="alternate" type="text/html" title="Deep Learning Approach in detecting Malware (STAMINA)" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>http://localhost:4000/linux/ml/stamina</id><content type="html" xml:base="http://localhost:4000/linux/ml/stamina">&lt;p&gt;Intel Labs and Microsoft Threat Protection Intelligence Teams are collaborating to research the application of deep learning for malware threat detection. Intel and Microsoft have previously demonstrated that transfer learning from computer vision for malware analysis can achieve highly desirable classification performance.&lt;/p&gt;
 
 &lt;p&gt;The companies call the project STAMINA. The main aim of STAMINA (STAtic Malware-as-image Network Analysis) is to Leverage Deep learning techniques to avoid time-consuming manual feature engineering with high accuracy and low false positives.&lt;/p&gt;
 
@@ -23,7 +145,7 @@
 &lt;figure class=&quot;&quot;&gt;
   &lt;img src=&quot;/assets/images/posts/blog_4/image4.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
 
-&lt;p&gt;This approach of malware classification resulted in accuracy upto 99% with 2.6% false positive rating. While this technique is revolutionary it is still in early stages. It’s extremely effective in analyzing small files but with large binaries STAMINA lags . The joint research encourages the use of deep transfer learning for the purpose of malware classification.&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><summary type="html">Intel Labs and Microsoft Threat Protection Intelligence Teams are collaborating to research the application of deep learning for malware threat detection. Intel and Microsoft have previously demonstrated that transfer learning from computer vision for malware analysis can achieve highly desirable classification performance.</summary></entry><entry><title type="html">Ownership and permissions in linux</title><link href="http://localhost:4000/linux/owenership_and_permission" rel="alternate" type="text/html" title="Ownership and permissions in linux" /><published>2020-12-02T00:00:00+05:30</published><updated>2020-12-02T00:00:00+05:30</updated><id>http://localhost:4000/linux/owenership_and_permission</id><content type="html" xml:base="http://localhost:4000/linux/owenership_and_permission">&lt;p&gt;We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.&lt;/p&gt;
+&lt;p&gt;This approach of malware classification resulted in accuracy upto 99% with 2.6% false positive rating. While this technique is revolutionary it is still in early stages. It’s extremely effective in analyzing small files but with large binaries STAMINA lags . The joint research encourages the use of deep transfer learning for the purpose of malware classification.&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="ML" /><summary type="html">Intel Labs and Microsoft Threat Protection Intelligence Teams are collaborating to research the application of deep learning for malware threat detection. Intel and Microsoft have previously demonstrated that transfer learning from computer vision for malware analysis can achieve highly desirable classification performance.</summary></entry><entry><title type="html">Ownership and permissions in linux</title><link href="http://localhost:4000/linux/owenership_and_permission" rel="alternate" type="text/html" title="Ownership and permissions in linux" /><published>2020-12-02T00:00:00+05:30</published><updated>2020-12-02T00:00:00+05:30</updated><id>http://localhost:4000/linux/owenership_and_permission</id><content type="html" xml:base="http://localhost:4000/linux/owenership_and_permission">&lt;p&gt;We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.&lt;/p&gt;
 
 &lt;p&gt;Linux like many other operating system is multi-user OS therefore to keep each users data safe and block unauthorized access linux enforces 2 level guard&lt;/p&gt;
 
