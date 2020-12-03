@@ -1,13 +1,12 @@
 ---
-title:  "Blogs"
-layout: archive
+title: Blogs
+layout: collection
 permalink: /Blogs/
-author_profile: true
-comments: true
+author_profile: false
+collection: Blog
+comments: false
 entries_layout: grid
 ---
-
-This is my blog page.
 
 {% for post in site.posts %}
     {% include archive-single.html %}

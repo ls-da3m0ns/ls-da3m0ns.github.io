@@ -1,0 +1,109 @@
+I"�<p>What are units?</p>
+
+<p>Units are basically resources that can be managed by systemctl, each unit is defined by unit files which are generally located in  <b>/lib/systemd/system</b></p>
+
+<p>To know more about systemctl refer to previous article at <mark><a href="https://medium.com/@backbencherspot/systemd-and-services-70db064e177d?source=friends_link&amp;sk=5dcffa22d36815d0596f4e14553f5c08"> Link To Previous Article </a></mark></p>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_3/image1.png" alt="" /><figcaption>
+      
+
+    </figcaption></figure>
+
+<p>The type of unit is defined by the last part of unit file-name for example services have .service suffix</p>
+
+<p>Note: we are not using sudo during execution of commands that’s because we are just read file info but not making any changes</p>
+
+<p>Systemd will only read or parse units which are necessary, it might not read every unit file in its directory so while listing units it only show files that are loaded into memory</p>
+
+<p><b>Listing current units</b></p>
+
+<p>To list all the units that are currently active you can use list-units command</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl  list-units 
+</code></pre></div></div>
+
+<p>Or</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl 
+</code></pre></div></div>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_3/image2.png" alt="" /><figcaption>
+      
+
+    </figcaption></figure>
+
+<p>To list all the units regardless of their current state you can use –all flag with it</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl list-units --all
+</code></pre></div></div>
+
+<p>To list units of particular type you can use –type= filter for example to list all services unit</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl  list-units --type=service
+</code></pre></div></div>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_3/image3.png" alt="" /><figcaption>
+      
+
+    </figcaption></figure>
+
+<p><b>Listing All unit files</b></p>
+
+<p>To list all unit files in the current directory of systemd we use list-unit-files command .</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl list-unit-files
+</code></pre></div></div>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_3/image4.png" alt="" /><figcaption>
+      
+
+    </figcaption></figure>
+
+<p>The first thing to note here is that it contains a lot less information as compared to list-unit command. The reason is obvious: these are files which might not be loaded by systemd hence it only presents info about unit files.</p>
+
+<p><b>Displaying unit file of a service</b></p>
+
+<p>To get more specific information about a particular service we can use cat command to display its unit file</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl cat apache2.service 
+</code></pre></div></div>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_3/image5.png" alt="" /><figcaption>
+      
+
+    </figcaption></figure>
+
+<p><b>List dependencies of unit </b></p>
+
+<p>To list dependencies of a unit you can use list-dependencies command. It will output list of dependencies of unit which must be completed before starting that unit</p>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_3/image6.png" alt="" /><figcaption>
+      
+
+    </figcaption></figure>
+
+<p><b>Masking of units</b></p>
+
+<p>In the last article we saw how we can use systemctl enable/disable servicename command to enable or disable a service but systemd has the ability to make a unit completely unstartable by masking it. To mask a service use</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl mask apache2.service
+</code></pre></div></div>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_3/image7.png" alt="" /><figcaption>
+      
+
+    </figcaption></figure>
+
+<p>This will make apache unstartable automatically or manually, If you want to again use service you will have to unmask the service first using</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl unmask apache2.service
+</code></pre></div></div>
+
+:ET

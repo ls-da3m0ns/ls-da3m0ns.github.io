@@ -1,0 +1,24 @@
+I"�<p>Intel Labs and Microsoft Threat Protection Intelligence Teams are collaborating to research the application of deep learning for malware threat detection. Intel and Microsoft have previously demonstrated that transfer learning from computer vision for malware analysis can achieve highly desirable classification performance.</p>
+
+<p>The companies call the project STAMINA. The main aim of STAMINA (STAtic Malware-as-image Network Analysis) is to Leverage Deep learning techniques to avoid time-consuming manual feature engineering with high accuracy and low false positives.</p>
+
+<p>Static analysis is a quick and straightforward way to detect malware without executing the application or monitoring the run time behaviour, static analysis technique is used to match malicious signatures.</p>
+
+<figure class="">
+  <img src="/assets/images/post/blog_4/image1.png" alt="" /></figure>
+
+<p><b>Preprocessing (image conversion)</b></p>
+
+<p>An image is obtained from a binary application by assigning a value between 0–255 to every byte, which directly corresponds to pixel intensity. The resulting1-D pixel stream is then converted to 2-D with the help of a table shown below that gives width according to file size, height is obtained by no of pixels divided by width. After reshaping images are resized to 224 or 299 using bilinear interpolation or nearest neighbor algorithms.</p>
+
+<figure class="">
+  <img src="/assets/images/post/blog_4/image2.png" alt="" /></figure>
+
+<p>Transfer learning Step&lt;/b&gt;</p>
+
+<p>Due to limitation of datasets training a complete deep neural network can be difficult therefore transfer learning is used. The idea here is to borrow knowledge learned from a model used in one domain and apply it to another target domain.</p>
+
+<p>A portion of layers are frozen and the last few layers are fine-tuned on a newly obtained dataset.</p>
+
+<p>This approach of malware classification resulted in accuracy upto 99% with 2.6% false positive rating. While this technique is revolutionary it is still in early stages. It’s extremely effective in analyzing small files but with large binaries STAMINA lags . The joint research encourages the use of deep transfer learning for the purpose of malware classification.</p>
+:ET

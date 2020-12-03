@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dark" # "dark" ,air", "aqua", "contrast", "default", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "air" # "dark" ,air", "aqua", "contrast", "default", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -26,7 +26,7 @@ baseurl                  :  # the subpath of your site, e.g. "/blog"
 repository               : "ls-da3m0ns/ls-da3m0ns.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 head_scripts             : # add cdn scripts
 
-teaser                   : "/assets/images/404.png" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+teaser                   : "/assets/images/default_overlay.png" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/images/beginers_logo_transparent.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
@@ -101,7 +101,7 @@ analytics:
 # Site Author
 author:
   name             : "Prashant Singh"
-  avatar           : "/assets/images/prashant_logo_transparent.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/prashant_singh_transparent.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "You remember that boring team member of yours Yeah thats not me !"
   location         : "localhost"
   #email            : "mail.prashantsingh.41@gmail.com"
@@ -273,6 +273,9 @@ defaults:
       path: ""
       type: posts
     values:
+      class: wide
+      date: 2020-12-04
+      title: blog
       layout: single
       show_date: true
       author_profile: true
@@ -280,3 +283,8 @@ defaults:
       comments:  true
       share: true
       related: true
+      header:
+        overlay_image: "/assets/images/default_overlay.png"
+        caption: ""
+        overlay_filter: "0.8"
+      categories: linux

@@ -1,4 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-02T10:29:20+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Beginers.tech</title><subtitle>Stuff that nobody is talking about !</subtitle><author><name>Prashant Singh</name></author><entry><title type="html">Ownership and permissions in linux</title><link href="http://localhost:4000/linux/owenership_and_permission" rel="alternate" type="text/html" title="Ownership and permissions in linux" /><published>2020-12-02T00:00:00+05:30</published><updated>2020-12-02T00:00:00+05:30</updated><id>http://localhost:4000/linux/owenership_and_permission</id><content type="html" xml:base="http://localhost:4000/linux/owenership_and_permission">&lt;p&gt;We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-03T18:55:49+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Beginers.tech</title><subtitle>Stuff that nobody is talking about !</subtitle><author><name>Prashant Singh</name></author><entry><title type="html">Deep Learning Approach in detecting Malware (STAMINA)</title><link href="http://localhost:4000/linux/stamina" rel="alternate" type="text/html" title="Deep Learning Approach in detecting Malware (STAMINA)" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>http://localhost:4000/linux/stamina</id><content type="html" xml:base="http://localhost:4000/linux/stamina">&lt;p&gt;Intel Labs and Microsoft Threat Protection Intelligence Teams are collaborating to research the application of deep learning for malware threat detection. Intel and Microsoft have previously demonstrated that transfer learning from computer vision for malware analysis can achieve highly desirable classification performance.&lt;/p&gt;
+
+&lt;p&gt;The companies call the project STAMINA. The main aim of STAMINA (STAtic Malware-as-image Network Analysis) is to Leverage Deep learning techniques to avoid time-consuming manual feature engineering with high accuracy and low false positives.&lt;/p&gt;
+
+&lt;p&gt;Static analysis is a quick and straightforward way to detect malware without executing the application or monitoring the run time behaviour, static analysis technique is used to match malicious signatures.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_4/image1.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;b&gt;Preprocessing (image conversion)&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;An image is obtained from a binary application by assigning a value between 0–255 to every byte, which directly corresponds to pixel intensity. The resulting1-D pixel stream is then converted to 2-D with the help of a table shown below that gives width according to file size, height is obtained by no of pixels divided by width. After reshaping images are resized to 224 or 299 using bilinear interpolation or nearest neighbor algorithms.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_4/image2.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;b&gt;Transfer learning Step&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Due to limitation of datasets training a complete deep neural network can be difficult therefore transfer learning is used. The idea here is to borrow knowledge learned from a model used in one domain and apply it to another target domain.&lt;/p&gt;
+
+&lt;p&gt;A portion of layers are frozen and the last few layers are fine-tuned on a newly obtained dataset.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_4/image4.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;This approach of malware classification resulted in accuracy upto 99% with 2.6% false positive rating. While this technique is revolutionary it is still in early stages. It’s extremely effective in analyzing small files but with large binaries STAMINA lags . The joint research encourages the use of deep transfer learning for the purpose of malware classification.&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><summary type="html">Intel Labs and Microsoft Threat Protection Intelligence Teams are collaborating to research the application of deep learning for malware threat detection. Intel and Microsoft have previously demonstrated that transfer learning from computer vision for malware analysis can achieve highly desirable classification performance.</summary></entry><entry><title type="html">Ownership and permissions in linux</title><link href="http://localhost:4000/linux/owenership_and_permission" rel="alternate" type="text/html" title="Ownership and permissions in linux" /><published>2020-12-02T00:00:00+05:30</published><updated>2020-12-02T00:00:00+05:30</updated><id>http://localhost:4000/linux/owenership_and_permission</id><content type="html" xml:base="http://localhost:4000/linux/owenership_and_permission">&lt;p&gt;We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.&lt;/p&gt;
 
 &lt;p&gt;Linux like many other operating system is multi-user OS therefore to keep each users data safe and block unauthorized access linux enforces 2 level guard&lt;/p&gt;
 
@@ -176,4 +201,110 @@ a : all
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/posts/blog_2/image5.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><summary type="html">What is systemd?</summary></entry><entry><title type="html">My first post</title><link href="http://localhost:4000/demo/demopost" rel="alternate" type="text/html" title="My first post" /><published>2016-11-11T00:00:00+05:30</published><updated>2016-11-11T00:00:00+05:30</updated><id>http://localhost:4000/demo/demopost</id><content type="html" xml:base="http://localhost:4000/demo/demopost">&lt;p&gt;my first post looks just fine&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="demo" /><summary type="html">my first post looks just fine</summary></entry></feed>
+  &lt;img src=&quot;/assets/images/posts/blog_2/image5.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><summary type="html">What is systemd?</summary></entry><entry><title type="html">Systemd and Units</title><link href="http://localhost:4000/linux/systemd_and_units" rel="alternate" type="text/html" title="Systemd and Units" /><published>2020-12-02T00:00:00+05:30</published><updated>2020-12-02T00:00:00+05:30</updated><id>http://localhost:4000/linux/systemd_and_units</id><content type="html" xml:base="http://localhost:4000/linux/systemd_and_units">&lt;p&gt;What are units?&lt;/p&gt;
+
+&lt;p&gt;Units are basically resources that can be managed by systemctl, each unit is defined by unit files which are generally located in  &lt;b&gt;/lib/systemd/system&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;To know more about systemctl refer to previous article at &lt;mark&gt;&lt;a href=&quot;https://medium.com/@backbencherspot/systemd-and-services-70db064e177d?source=friends_link&amp;amp;sk=5dcffa22d36815d0596f4e14553f5c08&quot;&gt; Link To Previous Article &lt;/a&gt;&lt;/mark&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_3/image1.png&quot; alt=&quot;&quot; /&gt;&lt;figcaption&gt;
+      
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;The type of unit is defined by the last part of unit file-name for example services have .service suffix&lt;/p&gt;
+
+&lt;p&gt;Note: we are not using sudo during execution of commands that’s because we are just read file info but not making any changes&lt;/p&gt;
+
+&lt;p&gt;Systemd will only read or parse units which are necessary, it might not read every unit file in its directory so while listing units it only show files that are loaded into memory&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Listing current units&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;To list all the units that are currently active you can use list-units command&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl  list-units 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Or&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_3/image2.png&quot; alt=&quot;&quot; /&gt;&lt;figcaption&gt;
+      
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;To list all the units regardless of their current state you can use –all flag with it&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl list-units --all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To list units of particular type you can use –type= filter for example to list all services unit&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl  list-units --type=service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_3/image3.png&quot; alt=&quot;&quot; /&gt;&lt;figcaption&gt;
+      
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;b&gt;Listing All unit files&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;To list all unit files in the current directory of systemd we use list-unit-files command .&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl list-unit-files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_3/image4.png&quot; alt=&quot;&quot; /&gt;&lt;figcaption&gt;
+      
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;The first thing to note here is that it contains a lot less information as compared to list-unit command. The reason is obvious: these are files which might not be loaded by systemd hence it only presents info about unit files.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Displaying unit file of a service&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;To get more specific information about a particular service we can use cat command to display its unit file&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl cat apache2.service 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_3/image5.png&quot; alt=&quot;&quot; /&gt;&lt;figcaption&gt;
+      
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;b&gt;List dependencies of unit &lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;To list dependencies of a unit you can use list-dependencies command. It will output list of dependencies of unit which must be completed before starting that unit&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_3/image6.png&quot; alt=&quot;&quot; /&gt;&lt;figcaption&gt;
+      
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;b&gt;Masking of units&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;In the last article we saw how we can use systemctl enable/disable servicename command to enable or disable a service but systemd has the ability to make a unit completely unstartable by masking it. To mask a service use&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl mask apache2.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_3/image7.png&quot; alt=&quot;&quot; /&gt;&lt;figcaption&gt;
+      
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;This will make apache unstartable automatically or manually, If you want to again use service you will have to unmask the service first using&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl unmask apache2.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><summary type="html">What are units?</summary></entry></feed>
