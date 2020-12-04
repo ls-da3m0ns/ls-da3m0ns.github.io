@@ -69,7 +69,7 @@ google:
   instant_search         : # false (default), true
 
 # SEO Related
-google_site_verification :
+google_site_verification :"google-site-verification=POJOvOShLzLyollnHh2SoboNro4WZrOupJJBHHIPZOE"
 bing_site_verification   :
 yandex_site_verification :
 naver_site_verification  :
@@ -199,7 +199,7 @@ kramdown:
 # Sass/SCSS
 sass:
   sass_dir: _sass
-  style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+  style: compressed # https://sass-lang.com/documentatigoogle-site-verification=POJOvOShLzLyollnHh2SoboNro4WZrOupJJBHHIPZOEon/file.SASS_REFERENCE.html#output_style
 
 
 # Outputting
