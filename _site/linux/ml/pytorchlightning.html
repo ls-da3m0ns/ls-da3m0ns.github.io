@@ -9,45 +9,47 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Beginers.tech &#124; Page 2</title>
-<meta name="description" content="Stuff that nobody is talking about !">
+<!-- begin _includes/seo.html --><title>Pytorch Lightning Transfer Learning on custom dataset | Beginers.tech</title>
+<meta name="description" content="Why use PyTorch Lightning when you already have PyTorch ?">
 
 
   <meta name="author" content="Prashant Singh">
   
+  <meta property="article:author" content="Prashant Singh">
+  
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Beginers.tech">
-<meta property="og:title" content="Beginers.tech">
-<meta property="og:url" content="http://localhost:4000/page2/">
+<meta property="og:title" content="Pytorch Lightning Transfer Learning on custom dataset">
+<meta property="og:url" content="http://localhost:4000/linux/ml/pytorchlightning">
 
 
-  <meta property="og:description" content="Stuff that nobody is talking about !">
+  <meta property="og:description" content="Why use PyTorch Lightning when you already have PyTorch ?">
 
 
 
-  <meta property="og:image" content="http://localhost:4000/assets/images/prashant_singh.png">
+  <meta property="og:image" content="http://localhost:4000/assets/images/posts/blog_8/image1.png">
 
 
 
   <meta name="twitter:site" content="@ls_da3mons">
-  <meta name="twitter:title" content="Beginers.tech">
-  <meta name="twitter:description" content="Stuff that nobody is talking about !">
-  <meta name="twitter:url" content="http://localhost:4000/page2/">
+  <meta name="twitter:title" content="Pytorch Lightning Transfer Learning on custom dataset">
+  <meta name="twitter:description" content="Why use PyTorch Lightning when you already have PyTorch ?">
+  <meta name="twitter:url" content="http://localhost:4000/linux/ml/pytorchlightning">
 
   
-    <meta name="twitter:card" content="summary">
-    
-      <meta name="twitter:image" content="http://localhost:4000/assets/images/prashant_singh.png">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/posts/blog_8/image1.png">
   
 
   
 
 
 
+  <meta property="article:published_time" content="2020-12-04T00:00:00+05:30">
+
 
 
 
@@ -57,10 +59,8 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/page2/">
+<link rel="canonical" href="http://localhost:4000/linux/ml/pytorchlightning">
 
-
-  <link rel="prev" href="http://localhost:4000/">
 
 
 
@@ -123,7 +123,7 @@
 
   </head>
 
-  <body class="layout--home">
+  <body class="layout--single wide">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -180,6 +180,67 @@
 
     <div class="initial-content">
       
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/assets/images/posts/blog_8/image1.png');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Pytorch Lightning Transfer Learning on custom dataset
+
+        
+      </h1>
+      
+        <p class="page__lead"><b>Why use PyTorch Lightning when you already have PyTorch ?</b>
+</p>
+      
+      
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-12-04T00:00:00+05:30">December 4, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+      
+      
+    </div>
+  
+  
+    <span class="page__hero-caption">
+</span>
+  
+</div>
+
+
 
 
 
@@ -304,29 +365,149 @@
 
 
 
-  <div class="archive">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Pytorch Lightning Transfer Learning on custom dataset">
+    <meta itemprop="description" content="Why use PyTorch Lightning when you already have PyTorch ?">
+    <meta itemprop="datePublished" content="2020-12-04T00:00:00+05:30">
     
-      <h1 id="page-title" class="page__title"></h1>
-    
-    
 
-<h3 class="archive__subtitle">Recent posts</h3>
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><b>Why use PyTorch Lightning when you already have PyTorch ?</b></p>
+
+<p>Although PyTorch is great but when task becomes complex there’s lots of small mistakes that can happen this is where PyTorch Lightning shines it structures your training and preparation such thatits both extensible for advance users and easy to use for beginners</p>
+
+<p>For this Blog we will be using Butterfly Dataset which contains images of 50 different classes of butterfly.</p>
+
+<p><b>Imports</b></p>
+
+<p>This is pretty straight forward and dose not require much explanation</p>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_8/image1.png" alt="" /></figure>
+
+<p><b>Dataset </b></p>
+
+<p>PyTorch Lightning has a clean way of handling data using classes, it has pre-built  hooks which automatically get attached to the required method of the class and also are customizable.</p>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_8/image2.png" alt="" /></figure>
+
+<p>Few things to note here prepare_data function is called only once during training while function setup is called once for each device in the cluster.</p>
+
+<p>Lets say you have 8 cores in a TPU then prepare_data would be called once (generally for downloading data ) then setup would be called once for each 8 cores</p>
+
+<p><b>Model</b></p>
+
+<p>This is where most of the PyTorch lightning work is done, PyTorch lightning has preconfigured hooks that allows us train model carefree for example it automatically save checkpoint after each epoch, implements early_stopping if loss metrics is available and automatically setups device for you this allows us to run same code on CPU,GPU and also TPU</p>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_8/image3.png" alt="" /></figure>
+
+<p>Here we are using ResNet50 for 50 classes and Adam optimizer with fixed learning rate of 1e-4</p>
+
+<p><b>Training</b></p>
+
+<p>Training is as simple as calling trainer.fit in PyTorch Lightning</p>
+
+<figure class="">
+  <img src="/assets/images/posts/blog_8/image4.png" alt="" /></figure>
 
 
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
 
 
-<div class="entries-list">
   
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
     
+      
+      
+      <a href="/categories/#linux" class="page__taxonomy-item" rel="tag">Linux</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#linux" class="page__taxonomy-item" rel="tag">linux</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#ml" class="page__taxonomy-item" rel="tag">ML</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-12-04T00:00:00+05:30">December 4, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=%40ls_da3mons&text=Pytorch+Lightning+Transfer+Learning+on+custom+dataset%20http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fml%2Fpytorchlightning" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fml%2Fpytorchlightning" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fml%2Fpytorchlightning" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/linux/ml/stamina" class="pagination--pager" title="Deep Learning Approach in detecting Malware (STAMINA)
+">Previous</a>
+    
+    
+      <a href="/linux/ml/traffic_volume_prediction" class="pagination--pager" title="Top 0.1% EDA for metro-interstate-traffic-volume
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/default_overlay.png" alt="">
+      </div>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/linux/l1l2l3" rel="permalink">What are L1,L2 and L3 cache
+        <a href="/linux/ml/traffic_volume_prediction" rel="permalink">Top 0.1% EDA for metro-interstate-traffic-volume
 </a>
       
     </h2>
@@ -336,7 +517,56 @@
     
       
       <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-12-18T00:00:00+05:30">December 18, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">This is my approach to metro-interstate-traffic-volume major feature of this EDA is its Data Cleaning step while Modeling Step was pretty Straight forward an...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/default_overlay.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/ml/stamina" rel="permalink">Deep Learning Approach in detecting Malware (STAMINA)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         <time datetime="2020-12-03T00:00:00+05:30">December 3, 2020</time>
       </span>
     
@@ -348,30 +578,34 @@
       
 
       <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          2 minute read
+          1 minute read
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a...</p>
+    <p class="archive__item-excerpt" itemprop="description">Intel Labs and Microsoft Threat Protection Intelligence Teams are collaborating to research the application of deep learning for malware threat detection. In...</p>
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/default_overlay.png" alt="">
+      </div>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/linux/systemd_and_units" rel="permalink">Systemd and Units
+        <a href="/linux/pscommand" rel="permalink">Why running ps command without options on shell shows only two entries
 </a>
       
     </h2>
@@ -381,8 +615,8 @@
     
       
       <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2020-12-02T00:00:00+05:30">December 2, 2020</time>
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-12-03T00:00:00+05:30">December 3, 2020</time>
       </span>
     
 
@@ -393,7 +627,7 @@
       
 
       <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
           1 minute read
         
@@ -402,22 +636,26 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">What are units?
+    <p class="archive__item-excerpt" itemprop="description"> What is ps command?
 </p>
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/default_overlay.png" alt="">
+      </div>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/linux/systemd_and_services" rel="permalink">Systemd And Services
+        <a href="/linux/osync" rel="permalink">Use of O_SYNC flag while opening file
 </a>
       
     </h2>
@@ -427,8 +665,8 @@
     
       
       <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2020-12-02T00:00:00+05:30">December 2, 2020</time>
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-12-03T00:00:00+05:30">December 3, 2020</time>
       </span>
     
 
@@ -439,7 +677,7 @@
       
 
       <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
           1 minute read
         
@@ -448,103 +686,17 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">What is systemd?
-</p>
+    <p class="archive__item-excerpt" itemprop="description">Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descr...</p>
   </article>
 </div>
 
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/owenership_and_permission" rel="permalink">Ownership and permissions in linux
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2020-12-02T00:00:00+05:30">December 2, 2020</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.
-</p>
-  </article>
-</div>
-
+      </div>
+    </div>
+  
   
 </div>
 
-
-<nav class="pagination">
-  
-  <ul>
-    
-    
-      
-        <li><a href="/">Previous</a></li>
-      
-    
-
-    
-    
-      <li><a href="/">1</a></li>
-    
-
-    
-    
-
-    
-    
-    
-
-    
-
-    
-    
-
-    
-      <li><a href="#" class="disabled current">2</a></li>
-    
-
-    
-    
-      <li><a href="#" class="disabled"><span aria-hidden="true">Next</span></a></li>
-    
-  </ul>
-</nav>
-
-
-
-  </div>
-</div>
     </div>
 
     

@@ -94,6 +94,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler
+  jekyll-gist
   minimal-mistakes-jekyll!
   rake (>= 12.3.3)
 

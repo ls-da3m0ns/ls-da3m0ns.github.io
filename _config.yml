@@ -288,3 +288,8 @@ defaults:
         caption: ""
         overlay_filter: "0.8"
       categories: linux
+
+
+gist:
+  noscript: false
+  

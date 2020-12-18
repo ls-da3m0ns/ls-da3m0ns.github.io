@@ -1,4 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-03T19:34:12+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Beginers.tech</title><subtitle>Stuff that nobody is talking about !</subtitle><author><name>Prashant Singh</name></author><entry><title type="html">What are L1,L2 and L3 cache</title><link href="http://localhost:4000/linux/l1l2l3" rel="alternate" type="text/html" title="What are L1,L2 and L3 cache" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>http://localhost:4000/linux/l1l2l3</id><content type="html" xml:base="http://localhost:4000/linux/l1l2l3">&lt;p&gt;Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a huge bottle neck for Computers this problem is resolved by using something called CPU cache.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-18T11:08:58+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Beginers.tech</title><subtitle>Stuff that nobody is talking about !</subtitle><author><name>Prashant Singh</name></author><entry><title type="html">Top 0.1% EDA for metro-interstate-traffic-volume</title><link href="http://localhost:4000/linux/ml/traffic_volume_prediction" rel="alternate" type="text/html" title="Top 0.1% EDA for metro-interstate-traffic-volume" /><published>2020-12-18T00:00:00+05:30</published><updated>2020-12-18T00:00:00+05:30</updated><id>http://localhost:4000/linux/ml/traffic_volume_prediction</id><content type="html" xml:base="http://localhost:4000/linux/ml/traffic_volume_prediction">&lt;p&gt;This is my approach to metro-interstate-traffic-volume major feature of this EDA is its Data Cleaning step while Modeling Step was pretty Straight forward and think this is where you guys can 
+improve and push the RMSE a bit lower.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/f71d45feb9c81ac63b53f813564c279e.js&quot;&gt; &lt;/script&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="ML" /><summary type="html">This is my approach to metro-interstate-traffic-volume major feature of this EDA is its Data Cleaning step while Modeling Step was pretty Straight forward and think this is where you guys can improve and push the RMSE a bit lower.</summary></entry><entry><title type="html">Pytorch Lightning Transfer Learning on custom dataset</title><link href="http://localhost:4000/linux/ml/pytorchlightning" rel="alternate" type="text/html" title="Pytorch Lightning Transfer Learning on custom dataset" /><published>2020-12-04T00:00:00+05:30</published><updated>2020-12-04T00:00:00+05:30</updated><id>http://localhost:4000/linux/ml/pytorchlightning</id><content type="html" xml:base="http://localhost:4000/linux/ml/pytorchlightning">&lt;p&gt;&lt;b&gt;Why use PyTorch Lightning when you already have PyTorch ?&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Although PyTorch is great but when task becomes complex there’s lots of small mistakes that can happen this is where PyTorch Lightning shines it structures your training and preparation such thatits both extensible for advance users and easy to use for beginners&lt;/p&gt;
+
+&lt;p&gt;For this Blog we will be using Butterfly Dataset which contains images of 50 different classes of butterfly.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Imports&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;This is pretty straight forward and dose not require much explanation&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_8/image1.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;b&gt;Dataset &lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;PyTorch Lightning has a clean way of handling data using classes, it has pre-built  hooks which automatically get attached to the required method of the class and also are customizable.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_8/image2.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;Few things to note here prepare_data function is called only once during training while function setup is called once for each device in the cluster.&lt;/p&gt;
+
+&lt;p&gt;Lets say you have 8 cores in a TPU then prepare_data would be called once (generally for downloading data ) then setup would be called once for each 8 cores&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Model&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;This is where most of the PyTorch lightning work is done, PyTorch lightning has preconfigured hooks that allows us train model carefree for example it automatically save checkpoint after each epoch, implements early_stopping if loss metrics is available and automatically setups device for you this allows us to run same code on CPU,GPU and also TPU&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_8/image3.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here we are using ResNet50 for 50 classes and Adam optimizer with fixed learning rate of 1e-4&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Training&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Training is as simple as calling trainer.fit in PyTorch Lightning&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_8/image4.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="Linux" /><category term="ML" /><summary type="html">Why use PyTorch Lightning when you already have PyTorch ?</summary></entry><entry><title type="html">What are L1,L2 and L3 cache</title><link href="http://localhost:4000/linux/l1l2l3" rel="alternate" type="text/html" title="What are L1,L2 and L3 cache" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>http://localhost:4000/linux/l1l2l3</id><content type="html" xml:base="http://localhost:4000/linux/l1l2l3">&lt;p&gt;Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a huge bottle neck for Computers this problem is resolved by using something called CPU cache.&lt;/p&gt;
 
 &lt;p&gt;In Computers mainly there are two type of memory&lt;/p&gt;
 
