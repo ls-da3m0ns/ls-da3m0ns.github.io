@@ -1,7 +1,5 @@
 # Personal Website Of Prashant Singh
 
-\n
-
 ##### Developed Using Jekyll and Deployed on Github Pages
 
-![Deploed Demo Of Website] (/assets/images/beginers_tech_live_demo.png)
+![Deploed Demo Of Website] (assets/images/beginers_tech_live_demo.png)
