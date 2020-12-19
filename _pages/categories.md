@@ -1,7 +1,7 @@
 ---
-title:  "Projects"
+title:  "Categories"
 layout: archive
-permalink: /Pages/
+permalink: /categories/
 author_profile: true
 comments: true
 ---
