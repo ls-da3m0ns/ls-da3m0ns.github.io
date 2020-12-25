@@ -2,6 +2,7 @@
 title: "Top 0.1% EDA for metro-interstate-traffic-volume"
 date: 2020-12-18
 categories: ML
+description: "EDA analysis on csv Dataset, Random forest regression, Decision Tree Regressor, Neural Net on Regression Task"
 header:
     overlay_image: "/assets/images/posts/blog_9/image_1.png"
 ---

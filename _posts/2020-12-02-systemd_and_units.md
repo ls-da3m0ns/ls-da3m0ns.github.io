@@ -4,6 +4,7 @@ layout: single
 title:  "Systemd and Units"
 date:   2020-12-02
 categories: linux
+description: "Systemd And Units demystified, What is Systemd And Units"
 header:
     overlay_image: "/assets/images/posts/blog_3/image1.png"
     caption: ""

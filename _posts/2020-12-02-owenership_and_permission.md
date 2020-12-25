@@ -2,6 +2,7 @@
 classes: wide
 layout: single
 title:  "Ownership and permissions in linux"
+description: "Ownership and permissions demystified, How linux handles owenersip and permissions"
 date:   2020-12-02
 categories: linux
 header:

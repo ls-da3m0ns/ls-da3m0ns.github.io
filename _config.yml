@@ -212,10 +212,10 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 # Plugins (previously gems:)
 plugins:
   - jekyll-paginate
-  - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-sitemap
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -278,6 +278,7 @@ defaults:
       title: blog
       layout: single
       show_date: true
+      sitemap: true
       author_profile: true
       read_time: true
       comments:  true

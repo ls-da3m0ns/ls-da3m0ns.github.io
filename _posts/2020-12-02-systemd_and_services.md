@@ -3,6 +3,7 @@ classes: wide
 layout: single
 title:  "Systemd And Services"
 date:   2020-12-02
+description: "Systemd And Services demystified, What is Systemd And Services"
 categories: linux
 header:
     overlay_image: "/assets/images/posts/blog_2/image1.png"

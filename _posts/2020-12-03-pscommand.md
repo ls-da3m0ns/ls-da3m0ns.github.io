@@ -1,6 +1,7 @@
 ---
 title: "Why running ps command without options on shell shows only two entries"
 date: 2020-12-03
+description: "ps command demystified, Why running ps command without options on shell shows only two entries"
 header:
     overlay_image: "/assets/images/posts/blog_7/image1.png"
 ---

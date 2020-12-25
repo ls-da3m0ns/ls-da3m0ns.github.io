@@ -2,6 +2,7 @@
 title: "Pytorch Lightning Transfer Learning on custom dataset"
 date: 2020-12-04
 categories: Linux ML
+description: "Pytorch Lightning demystified,How to use Pytorch Lightning Transfer Learning on custom dataset"
 header:
     overlay_image: "/assets/images/posts/blog_8/image1.png"
 ---
