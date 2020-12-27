@@ -1,0 +1,33 @@
+I"�<h2 id="backstory">BackStory</h2>
+<p>Every Great project has a back story this dose to, so lets start</p>
+
+<p>My daily work forces me copy lots of small document from my phone to laptop now my lazyness forces me not to use Data cable 
+or some popular file sharing app like ShareIt i just use my whatsapp send a message with file attached to it and open whatsapp
+ web to download it :) not the most efficient way i get it. So here is why i thought of this project i want to share my files 
+ across the devices without installing apps.</p>
+
+<p><br /></p>
+
+<h2 id="cli-share-and-how-it-solves-this">CLI share and how it solves this</h2>
+
+<p>CLI share leverages the fact that tools like CURL already come preinstalled in most of the devices available in this world 
+yes you read it correct whole world!  not conviced allow me to explain</p>
+
+<p>most of the os are either unix derivative or Windows both of them already have CURL preinstalled the only OS’s which don’t
+have curl by default is either custom compiled OS or some over the top secure computers :)</p>
+
+<p>With CLI share you have the flexibility to share files using it’s web interface of it CLI based API its really simple and straight 
+forward</p>
+
+<p>Use CURL to send a POST request with your file attached to it like</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-F</span> <span class="s2">"file=@/path/to/file"</span> clishare.ml
+</code></pre></div></div>
+
+<p>This will generate a 4 digit token and a link you can use this direct link or this 4 digit token to get your file if you choose to 
+use token then this is how you get your file back</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-OJ</span> clishare.ml/<span class="o">{</span>your_token<span class="o">}</span> 
+</code></pre></div></div>
+
+<p>That’s it this is all you need to share files across the internet safely and easily.</p>
+:ET

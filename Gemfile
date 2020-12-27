@@ -3,3 +3,4 @@ gemspec
 
 gem 'jekyll-gist'
 gem 'jekyll-seo-tag'
+gem 'jekyll-archives'

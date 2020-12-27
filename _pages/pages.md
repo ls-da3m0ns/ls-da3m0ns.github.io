@@ -7,4 +7,8 @@ author_profile: true
 comments: true
 ---
 
-# Sorry But Prashant will finish this section of website soon I promise :)
+{% for post in site.pages %}
+    {% if post.categories == "projects" %}
+        {% include archive-single.html %}
+    {%endif%}
+{% endfor %}

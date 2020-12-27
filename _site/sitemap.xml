@@ -37,7 +37,7 @@
 <lastmod>2020-12-18T00:00:00+05:30</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/_projects/2020-12-01-demoprojects</loc>
+<loc>http://localhost:4000/_projects/2020-12-27-cli-share</loc>
 </url>
 <url>
 <loc>http://localhost:4000/Blogs/</loc>
@@ -50,6 +50,15 @@
 </url>
 <url>
 <loc>http://localhost:4000/Pages/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/categories/linux/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/categories/linux/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/categories/ml/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/page2/</loc>
