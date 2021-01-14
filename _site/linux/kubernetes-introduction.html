@@ -9,45 +9,47 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Beginers.tech</title>
-<meta name="description" content="Stuff that nobody is talking about !">
+<!-- begin _includes/seo.html --><title>Kubernetes Introduction | Beginers.tech</title>
+<meta name="description" content="Everything about Kubenetes and its working in detail">
 
 
   <meta name="author" content="Prashant Singh">
   
+  <meta property="article:author" content="Prashant Singh">
+  
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Beginers.tech">
-<meta property="og:title" content="Beginers.tech">
-<meta property="og:url" content="http://localhost:4000/">
+<meta property="og:title" content="Kubernetes Introduction">
+<meta property="og:url" content="http://localhost:4000/linux/kubernetes-introduction">
 
 
-  <meta property="og:description" content="Stuff that nobody is talking about !">
+  <meta property="og:description" content="Everything about Kubenetes and its working in detail">
 
 
 
-  <meta property="og:image" content="http://localhost:4000/assets/images/prashant_singh.png">
+  <meta property="og:image" content="http://localhost:4000/assets/images/posts/blog_11/image1.png">
 
 
 
   <meta name="twitter:site" content="@ls_da3mons">
-  <meta name="twitter:title" content="Beginers.tech">
-  <meta name="twitter:description" content="Stuff that nobody is talking about !">
-  <meta name="twitter:url" content="http://localhost:4000/">
+  <meta name="twitter:title" content="Kubernetes Introduction">
+  <meta name="twitter:description" content="Everything about Kubenetes and its working in detail">
+  <meta name="twitter:url" content="http://localhost:4000/linux/kubernetes-introduction">
 
   
-    <meta name="twitter:card" content="summary">
-    
-      <meta name="twitter:image" content="http://localhost:4000/assets/images/prashant_singh.png">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/posts/blog_11/image1.png">
   
 
   
 
 
 
+  <meta property="article:published_time" content="2021-01-14T00:00:00+05:30">
+
 
 
 
@@ -57,11 +59,9 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/">
+<link rel="canonical" href="http://localhost:4000/linux/kubernetes-introduction">
 
 
-
-  <link rel="next" href="http://localhost:4000/page2/">
 
 
 <script type="application/ld+json">
@@ -121,24 +121,25 @@
 
 <!-- end custom head snippets -->
 <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Beginers.tech | Stuff that nobody is talking about !</title>
+<title>Kubernetes Introduction | Beginers.tech</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Beginers.tech" />
+<meta property="og:title" content="Kubernetes Introduction" />
 <meta name="author" content="Prashant Singh" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Stuff that nobody is talking about !" />
-<meta property="og:description" content="Stuff that nobody is talking about !" />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
+<meta name="description" content="Everything about Kubenetes and its working in detail" />
+<meta property="og:description" content="Everything about Kubenetes and its working in detail" />
+<link rel="canonical" href="http://localhost:4000/linux/kubernetes-introduction" />
+<meta property="og:url" content="http://localhost:4000/linux/kubernetes-introduction" />
 <meta property="og:site_name" content="Beginers.tech" />
-<link rel="next" href="http://localhost:4000/page2/" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-14T00:00:00+05:30" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Beginers.tech" />
+<meta property="twitter:title" content="Kubernetes Introduction" />
 <meta name="twitter:site" content="@ls_da3mons" />
 <meta name="twitter:creator" content="@Prashant Singh" />
 <meta name="google-site-verification" content="google-site-verification=u1WudUCX5MxBBYu26WTtlI7brgH_nOPBxyRyGz5sVis" />
 <script type="application/ld+json">
-{"headline":"Beginers.tech","@type":"WebSite","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/beginers_logo_transparent.png"},"name":"Prashant Singh"},"url":"http://localhost:4000/","author":{"@type":"Person","name":"Prashant Singh"},"name":"Beginers.tech","description":"Stuff that nobody is talking about !","@context":"https://schema.org"}</script>
+{"headline":"Kubernetes Introduction","dateModified":"2021-01-14T00:00:00+05:30","datePublished":"2021-01-14T00:00:00+05:30","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/linux/kubernetes-introduction"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/beginers_logo_transparent.png"},"name":"Prashant Singh"},"url":"http://localhost:4000/linux/kubernetes-introduction","author":{"@type":"Person","name":"Prashant Singh"},"description":"Everything about Kubenetes and its working in detail","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -156,7 +157,7 @@
 </script>
   </head>
 
-  <body class="layout--home">
+  <body class="layout--single wide">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -213,6 +214,68 @@
 
     <div class="initial-content">
       
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/assets/images/posts/blog_11/image1.png');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Kubernetes Introduction
+
+        
+      </h1>
+      
+        <p class="page__lead">With this article I am starting a new series of blog about kubernetes I will be going in detail about kubernetes and will also deploy lots of projects and demos
+all the theoretical knowledge will be followed by sample code.
+</p>
+      
+      
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-01-14T00:00:00+05:30">January 14, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+      
+      
+    </div>
+  
+  
+    <span class="page__hero-caption">
+</span>
+  
+</div>
+
+
 
 
 
@@ -337,70 +400,142 @@
 
 
 
-  <div class="archive">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Kubernetes Introduction">
+    <meta itemprop="description" content="With this article I am starting a new series of blog about kubernetes I will be going in detail about kubernetes and will also deploy lots of projects and demosall the theoretical knowledge will be followed by sample code.">
+    <meta itemprop="datePublished" content="2021-01-14T00:00:00+05:30">
     
-      <h1 id="page-title" class="page__title"></h1>
-    
-    
 
-<h3 class="archive__subtitle">Recent posts</h3>
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>With this article I am starting a new series of blog about kubernetes I will be going in detail about kubernetes and will also deploy lots of projects and demos
+all the theoretical knowledge will be followed by sample code.</p>
+
+<p>So Lets Start</p>
+
+<p><b>What the heck is kubernetes?</b></p>
+
+<p>Before we understand kubernetes we should first ask <u>why its is used</u> and the answer to that in simple words is to manage containers.</p>
+
+<p><b>But what is this container ?</b></p>
+
+<p>Containers are similar to Virtual Machines (VMs) but not as isolated like VMs while VMs enjoy compelete isolation from base OS
+containers use base OS to make themselves lightweight but only to a extent where they are still potable.
+Similar to VMs Containers have there own filesystem, share of CPU, memory, process space.</p>
+
+<p><u>So in lot more simple way containers give you a full fledge VM like environment but faster and less resource hungry.</u></p>
+
+<p>There are lots of container services but one of them which is famous for many good reasons is Docker</p>
+
+<p><b>Now lets comeback to our main question what is kubernetes?</b></p>
+
+<p>Although containers are great way to deploy your application but in production you need a way to easily manage these containers and ensure there is no downtime 
+this is where services like kubernetes and other container-Orchestration tools comes in Kubernetes provides you with a framework to run distributed systems resiliently
+in simpler words It takes care of scaling and failover for your application and can even help you with your deployment pattern.</p>
+
+<p><b>Services Provided By Kubernetes : </b></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Service discovery and load balancing
+Storage Orchestration 
+Automated rollouts and rollbacks
+Automatic bin packing
+self healing
+Secret and configuration Management
+</code></pre></div></div>
+
+<p>Don’t worry if you dont understand any of the above services we will learn each of them in detail in comming articles</p>
+
+<p><b>Myth regarding kubernetes </b>
+It is a PaaS</p>
+
+<p>this is one of the biggest myth in many users mind that kubernetes can operate on hardware level but thats not true it operates on container level 
+But still it can provide some of the common PaaS offerings Such as Load Balancing, Deployment, Scaling, logging, monitoring etc</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
 
 
-
-
-<div class="entries-list">
   
-    
 
 
+  
+  
+  
 
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/kubernetes-introduction" rel="permalink">Kubernetes Introduction
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2021-01-14T00:00:00+05:30">January 14, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
     
       
       
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
+      <a href="/categories/#linux" class="page__taxonomy-item" rel="tag">Linux</a><span class="sep">, </span>
     
+      
+      
+      <a href="/categories/#linux" class="page__taxonomy-item" rel="tag">linux</a>
+    
+    </span>
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">With this article I am starting a new series of blog about kubernetes I will be going in detail about kubernetes and will also deploy lots of projects and de...</p>
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-01-14T00:00:00+05:30">January 14, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=%40ls_da3mons&text=Kubernetes+Introduction%20http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fkubernetes-introduction" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fkubernetes-introduction" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fkubernetes-introduction" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/linux/ml/fake-news-detector" class="pagination--pager" title="100% accuracy on Fake News Classifiaction problem
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
   </article>
-</div>
 
   
-    
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/default_overlay.png" alt="">
+      </div>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
@@ -414,7 +549,7 @@
     
       
       <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         <time datetime="2020-12-18T00:00:00+05:30">December 18, 2020</time>
       </span>
     
@@ -426,7 +561,7 @@
       
 
       <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
           less than 1 minute read
         
@@ -439,13 +574,17 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/default_overlay.png" alt="">
+      </div>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
@@ -459,7 +598,7 @@
     
       
       <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         <time datetime="2020-12-18T00:00:00+05:30">December 18, 2020</time>
       </span>
     
@@ -471,7 +610,7 @@
       
 
       <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
           less than 1 minute read
         
@@ -484,13 +623,17 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/default_overlay.png" alt="">
+      </div>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
@@ -504,7 +647,7 @@
     
       
       <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         <time datetime="2020-12-04T00:00:00+05:30">December 4, 2020</time>
       </span>
     
@@ -516,7 +659,7 @@
       
 
       <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
           1 minute read
         
@@ -530,13 +673,17 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/default_overlay.png" alt="">
+      </div>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
@@ -550,7 +697,7 @@
     
       
       <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         <time datetime="2020-12-03T00:00:00+05:30">December 3, 2020</time>
       </span>
     
@@ -562,7 +709,7 @@
       
 
       <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
           1 minute read
         
@@ -575,186 +722,13 @@
   </article>
 </div>
 
+        
+      </div>
+    </div>
   
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/pscommand" rel="permalink">Why running ps command without options on shell shows only two entries
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2020-12-03T00:00:00+05:30">December 3, 2020</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description"> What is ps command?
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/osync" rel="permalink">Use of O_SYNC flag while opening file
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2020-12-03T00:00:00+05:30">December 3, 2020</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descr...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/l1l2l3" rel="permalink">What are L1,L2 and L3 cache
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2020-12-03T00:00:00+05:30">December 3, 2020</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          2 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a...</p>
-  </article>
-</div>
-
   
 </div>
 
-
-<nav class="pagination">
-  
-  <ul>
-    
-    
-    <li><a href="#" class="disabled"><span aria-hidden="true">Previous</span></a></li>
-    
-
-    
-    
-      <li><a href="#" class="disabled current">1</a></li>
-    
-
-    
-    
-
-    
-    
-    
-
-    
-
-    
-    
-
-    
-      <li><a href="/page2/">2</a></li>
-    
-
-    
-    
-      <li><a href="/page2/">Next</a></li>
-    
-  </ul>
-</nav>
-
-
-
-  </div>
-</div>
     </div>
 
     

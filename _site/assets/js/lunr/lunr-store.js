@@ -52,4 +52,16 @@ var store = [{
         "tags": [],
         "url": "http://localhost:4000/linux/ml/traffic_volume_prediction",
         "teaser": "http://localhost:4000/assets/images/default_overlay.png"
+      },{
+        "title": "100% accuracy on Fake News Classifiaction problem ",
+        "excerpt":"This is my approach to fake news classification challenge, If You ask me this was prettyu basic competion the trick was one of the test case ehich had no content so as usual my approach was to get as much content so i merged title and content column and that got me to 100% accuracy.     ","categories": ["linux","ML"],
+        "tags": [],
+        "url": "http://localhost:4000/linux/ml/fake-news-detector",
+        "teaser": "http://localhost:4000/assets/images/default_overlay.png"
+      },{
+        "title": "Kubernetes Introduction",
+        "excerpt":"With this article I am starting a new series of blog about kubernetes I will be going in detail about kubernetes and will also deploy lots of projects and demos all the theoretical knowledge will be followed by sample code.   So Lets Start   What the heck is kubernetes?   Before we understand kubernetes we should first ask why its is used and the answer to that in simple words is to manage containers.   But what is this container ?   Containers are similar to Virtual Machines (VMs) but not as isolated like VMs while VMs enjoy compelete isolation from base OS containers use base OS to make themselves lightweight but only to a extent where they are still potable. Similar to VMs Containers have there own filesystem, share of CPU, memory, process space.   So in lot more simple way containers give you a full fledge VM like environment but faster and less resource hungry.   There are lots of container services but one of them which is famous for many good reasons is Docker   Now lets comeback to our main question what is kubernetes?   Although containers are great way to deploy your application but in production you need a way to easily manage these containers and ensure there is no downtime  this is where services like kubernetes and other container-Orchestration tools comes in Kubernetes provides you with a framework to run distributed systems resiliently in simpler words It takes care of scaling and failover for your application and can even help you with your deployment pattern.   Services Provided By Kubernetes :    Service discovery and load balancing Storage Orchestration  Automated rollouts and rollbacks Automatic bin packing self healing Secret and configuration Management   Don’t worry if you dont understand any of the above services we will learn each of them in detail in comming articles   Myth regarding kubernetes  It is a PaaS   this is one of the biggest myth in many users mind that kubernetes can operate on hardware level but thats not true it operates on container level  But still it can provide some of the common PaaS offerings Such as Load Balancing, Deployment, Scaling, logging, monitoring etc  ","categories": ["linux","Linux"],
+        "tags": [],
+        "url": "http://localhost:4000/linux/kubernetes-introduction",
+        "teaser": "http://localhost:4000/assets/images/default_overlay.png"
       }]
