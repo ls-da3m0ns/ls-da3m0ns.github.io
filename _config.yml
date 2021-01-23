@@ -21,7 +21,7 @@ title_separator          : "|"
 subtitle                 : "Version 1.0" # site tagline that appears below site title in masthead
 name                     : "Prashant Singh"
 description              : "Stuff that nobody is talking about !"
-url                      : "https://ls-da3m0ns.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://beginers.tech" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  :  # the subpath of your site, e.g. "/blog"
 repository               : "ls-da3m0ns/ls-da3m0ns.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 head_scripts             : # add cdn scripts
