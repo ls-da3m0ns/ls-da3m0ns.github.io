@@ -1,1 +1,1 @@
-Sitemap: https://beginers.tech/sitemap.xml
+Sitemap: https://www.beginers.tech/sitemap.xml
