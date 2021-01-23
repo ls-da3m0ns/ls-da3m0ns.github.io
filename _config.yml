@@ -102,9 +102,9 @@ analytics:
 author:
   name             : "Prashant Singh"
   avatar           : "/assets/images/prashant_singh_transparent.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "You remember that boring team member of yours Yeah thats not me !"
+  bio              : "Feeling Useless ? Imagine having a blog with awesome Content and still no views"
   location         : "localhost"
-  #email            : "mail.prashantsingh.41@gmail.com"
+  email            : "mail.prashantsingh.41@gmail.com"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
