@@ -23,7 +23,7 @@ name                     : "Prashant Singh"
 description              : "Stuff that nobody is talking about !  the Ultimate Techy stuff !"
 url                      : "https://www.beginers.tech" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  :  # the subpath of your site, e.g. "/blog"
-repository               : "ls-da3m0ns/ls-da3m0ns.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "ls-da3m0ns/ls-da3m0ns.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 head_scripts             : # add cdn scripts
 
 teaser                   : "/assets/images/default_overlay.png" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
