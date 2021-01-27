@@ -1,4 +1,214 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://www.beginers.tech/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.beginers.tech/" rel="alternate" type="text/html" /><updated>2021-01-23T16:08:35+05:30</updated><id>https://www.beginers.tech/feed.xml</id><title type="html">Beginers Tech | the Ultimate Techy !</title><subtitle>Stuff that nobody is talking about !  </subtitle><author><name>Prashant Singh</name></author><entry><title type="html">Kubernetes Introduction</title><link href="https://www.beginers.tech/linux/kubernetes-introduction" rel="alternate" type="text/html" title="Kubernetes Introduction" /><published>2021-01-14T00:00:00+05:30</published><updated>2021-01-14T00:00:00+05:30</updated><id>https://www.beginers.tech/linux/kubernetes-introduction</id><content type="html" xml:base="https://www.beginers.tech/linux/kubernetes-introduction">&lt;p&gt;With this article I am starting a new series of blog about kubernetes I will be going in detail about kubernetes and will also deploy lots of projects and demos
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-28T00:34:33+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Beginers Tech | the Ultimate Techy !</title><subtitle>Stuff that nobody is talking about !  </subtitle><author><name>Prashant Singh</name></author><entry><title type="html">Tensorflow TPU and TFrecords</title><link href="http://localhost:4000/linux/ml/Tensorflow_TPU_and_Tfrecords" rel="alternate" type="text/html" title="Tensorflow TPU and TFrecords" /><published>2021-01-27T00:00:00+05:30</published><updated>2021-01-27T00:00:00+05:30</updated><id>http://localhost:4000/linux/ml/Tensorflow_TPU_and_Tfrecords</id><content type="html" xml:base="http://localhost:4000/linux/ml/Tensorflow_TPU_and_Tfrecords">&lt;p&gt;Before I start let me first say this “TPUs are fast and with fast i mean crazy fast the biggest bottleneck for TPU is its data loading process”&lt;/p&gt;
+
+&lt;p&gt;This article will be focused on how to combine TFrecod format with TPU processing to optimize data loading and minimize the training time&lt;/p&gt;
+
+&lt;h2 id=&quot;there-are-five-major-steps-to-keep-in-mind-when-you-are-using-tpu-in-tensorflow&quot;&gt;There are Five major steps to keep in mind when you are using TPU in Tensorflow&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h4 id=&quot;tpu-initialization&quot;&gt;TPU initialization&lt;/h4&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4 id=&quot;distribution-strategy&quot;&gt;Distribution Strategy&lt;/h4&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4 id=&quot;data-type&quot;&gt;Data Type&lt;/h4&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4 id=&quot;data-loading&quot;&gt;Data loading&lt;/h4&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4 id=&quot;training&quot;&gt;Training&lt;/h4&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;tpu-initialization-1&quot;&gt;TPU initialization&lt;/h2&gt;
+
+&lt;p&gt;Lets Start with TPU initialization, Its a very simple process and very important one the reason for this step is because TPU’s are multi node workers in the Cloud you dont have 
+direct access to them like you have with GPU’s and CPU’s so you need to initialize network connection to each TPU processing node.&lt;/p&gt;
+
+&lt;p&gt;Below is an Example code to do so&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tpu = tf.distribute.cluster_resolver.TPUClusterResolver()
+tf.config.experimental_connect_to_cluster(tpu)
+tf.tpu.experimental.initialize_tpu_system(tpu)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;distribution-strategy-1&quot;&gt;Distribution Strategy&lt;/h2&gt;
+
+&lt;p&gt;Now as there are multiple devices to work with you need some distribution strategy so that you can take advantage of multiple processing nodes the concept of distribution strategy is similar to what you might use for multi GPU training&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/guide/distributed_training&quot;&gt;Read More about distributed training here&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# instantiate a distribution strategy
+tpu_strategy = tf.distribute.experimental.TPUStrategy(tpu)
+AUTO = tf.data.experimental.AUTOTUNE
+REPLICAS = tpu_strategy.num_replicas_in_sync
+print(f'REPLICAS: {REPLICAS}')
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;data-type-1&quot;&gt;Data Type&lt;/h2&gt;
+&lt;p&gt;Currently, only the tf.float32, tf.int32, tf.bfloat16, and tf.bool data types are supported on the TPU. Other common data types, such as tf.uint8, tf.string, and tf.int64, must be converted to one of the supported data types during data pre-processing. I mostly use float32 and personally never tried bfloat32 before but it should work just fine.&lt;/p&gt;
+
+&lt;h2 id=&quot;data-loading-1&quot;&gt;Data Loading&lt;/h2&gt;
+&lt;p&gt;This is by far the most important step in TPU training correct implementation can give you huge perfomance boost.&lt;/p&gt;
+
+&lt;h3 id=&quot;tensorflow-and-tpus-only-work-with-data-hosted-on-gcs-atleast-for-now&quot;&gt;Tensorflow and TPU’s only work with data hosted on GCS atleast for now&lt;/h3&gt;
+
+&lt;p&gt;If you are using existing dataset from tensorflow dataset use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;try_gcs=True&lt;/code&gt; flag to load data from GCS other wise my recomendation is to host your data in tfrecord format in GCS buckets 
+I personally use Kaggle to host dataset and get GCS path from kaggle kernel that’s just me you can always use your personal GCP account&lt;/p&gt;
+
+&lt;p&gt;below is the example how i loaded Ranzcer competition dataset from gcs in tfrecord format&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;overview of code structure&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select tfrecord files to be used for data loading in my case i had 15 tfrecord files
+load it using tf.data.TFRecordDataset api 
+then map functions to decode labels and images and then convert it to particular data type 
+finally before training configure perfomance optimizing and neccesary steps for example batch,prefetch,shuffle,repeat etc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def to_float32_2(image, label):
+    max_val = tf.reduce_max(label, axis=-1,keepdims=True)
+    cond = tf.equal(label, max_val)
+    label = tf.where(cond, tf.ones_like(label), tf.zeros_like(label))
+    return tf.cast(image, tf.float32), tf.cast(label, tf.int32)
+
+def to_float32(image, label):
+    return tf.cast(image, tf.float32), label
+
+def decode_image(image_data):
+    image = tf.image.decode_jpeg(image_data, channels=3)
+    image = tf.cast(image, tf.float32) / 255.0  # convert image to floats in [0, 1] range
+    image = tf.reshape(image, [1024,1024, 3]) # explicit size needed for TPU
+    return image
+
+
+def read_labeled_tfrecord(example):
+    # Create a dictionary describing the features.
+    LABELED_TFREC_FORMAT = {
+        &quot;StudyInstanceUID&quot;           : tf.io.FixedLenFeature([], tf.string),
+        &quot;image&quot;                      : tf.io.FixedLenFeature([], tf.string),
+        &quot;ETT - Abnormal&quot;             : tf.io.FixedLenFeature([], tf.int64), 
+        &quot;ETT - Borderline&quot;           : tf.io.FixedLenFeature([], tf.int64), 
+        &quot;ETT - Normal&quot;               : tf.io.FixedLenFeature([], tf.int64), 
+        &quot;NGT - Abnormal&quot;             : tf.io.FixedLenFeature([], tf.int64), 
+        &quot;NGT - Borderline&quot;           : tf.io.FixedLenFeature([], tf.int64), 
+        &quot;NGT - Incompletely Imaged&quot;  : tf.io.FixedLenFeature([], tf.int64), 
+        &quot;NGT - Normal&quot;               : tf.io.FixedLenFeature([], tf.int64), 
+        &quot;CVC - Abnormal&quot;             : tf.io.FixedLenFeature([], tf.int64), 
+        &quot;CVC - Borderline&quot;           : tf.io.FixedLenFeature([], tf.int64), 
+        &quot;CVC - Normal&quot;               : tf.io.FixedLenFeature([], tf.int64), 
+        &quot;Swan Ganz Catheter Present&quot; : tf.io.FixedLenFeature([], tf.int64),
+    }
+    example = tf.io.parse_single_example(example, LABELED_TFREC_FORMAT)
+    image = decode_image(example['image']) 
+    image= tf.image.resize(image, [IMAGE_SIZE[0],IMAGE_SIZE[0]])
+    uid= example[&quot;StudyInstanceUID&quot;]
+    cvca = example[&quot;CVC - Abnormal&quot;]
+    cvcb = example[&quot;CVC - Borderline&quot;]
+    cvcn = example[&quot;CVC - Normal&quot;]
+    etta = example[&quot;ETT - Abnormal&quot;]
+    ettb = example[&quot;ETT - Borderline&quot;]
+    ettn = example[&quot;ETT - Normal&quot;]
+    ngta = example[&quot;NGT - Abnormal&quot;]
+    ngtb = example[&quot;NGT - Borderline&quot;]
+    ngti = example[&quot;NGT - Incompletely Imaged&quot;]
+    ngtn = example[&quot;NGT - Normal&quot;]
+    sgcp = example[&quot;Swan Ganz Catheter Present&quot;]
+
+    label  = [etta, ettb, ettn, ngta, ngtb, ngti, ngtn,cvca, cvcb, cvcn , sgcp]
+    label=[tf.cast(i,tf.float32) for i in label]
+    return image,label # returns a dataset of (image, label) pairs
+
+def read_unlabeled_tfrecord(example):
+    UNLABELED_TFREC_FORMAT  = {
+    &quot;StudyInstanceUID&quot; : tf.io.FixedLenFeature([], tf.string),
+    &quot;image&quot; : tf.io.FixedLenFeature([], tf.string)
+    }
+    example = tf.io.parse_single_example(example, UNLABELED_TFREC_FORMAT)
+    image = decode_image(example['image'])
+    image= tf.image.resize(image, [IMAGE_SIZE[0],IMAGE_SIZE[0]])
+    image_name = example['StudyInstanceUID']
+    return image, image_name # returns a dataset of image(s)
+
+def read_labeled_tf_record(filenames, labeled=True, ordered=False):
+    ignore_order = tf.data.Options()
+    if not ordered:
+        ignore_order.experimental_deterministic = False # disable order, increase speed
+
+    dataset = tf.data.TFRecordDataset(filenames, num_parallel_reads=AUTO) # automatically interleaves reads from multiple files
+    dataset = dataset.with_options(ignore_order) # uses data as soon as it streams in, rather than in its original order
+    dataset = dataset.map(read_labeled_tfrecord if labeled else read_unlabeled_tfrecord, num_parallel_calls=AUTO)
+    return dataset
+
+def data_augment(image, label):
+    image = tf.image.random_flip_left_right(image , seed=SEED)
+    image = tf.image.random_flip_up_down(image, seed=SEED)
+    image = tf.image.random_brightness(image, max_delta=0.5) # Random brightness
+    image = tf.image.random_saturation(image, 0, 2, seed=SEED)
+    image = tf.image.adjust_saturation(image, 3)
+    
+    #image = tf.image.central_crop(image, central_fraction=0.5)
+    return image, label   
+
+def get_training_dataset(dataset):
+    dataset = dataset.shuffle(2048)
+    dataset = dataset.repeat() # the training dataset must repeat for several epochs
+    dataset = dataset.map(data_augment, num_parallel_calls=AUTO)
+    dataset = dataset.batch(BATCH_SIZE)
+    dataset = dataset.prefetch(AUTO) # prefetch next batch while training (autotune prefetch buffer size)
+    return dataset
+
+def get_validation_dataset(ordered=False):
+    dataset = load_dataset(VALIDATION_FILENAMES, labeled=True, ordered=ordered)
+    dataset = dataset.batch(BATCH_SIZE)
+    dataset = dataset.cache()
+    dataset = dataset.prefetch(AUTO) # prefetch next batch while training (autotune prefetch buffer size)
+    return dataset
+
+def get_test_dataset(ordered=False):
+    dataset = load_dataset(TEST_FILENAMES, labeled=False, ordered=ordered)
+    dataset = dataset.batch(BATCH_SIZE)
+    dataset = dataset.prefetch(AUTO) # prefetch next batch while training (autotune prefetch buffer size)
+    return dataset
+
+def load_dataset(filenames, labeled = True, ordered = False):
+    ignore_order = tf.data.Options()
+    
+    if not ordered:
+        ignore_order.experimental_deterministic = False
+    
+    dataset = (tf.data.TFRecordDataset(filenames, num_parallel_reads = AUTO).with_options(ignore_order).
+               map(read_labeled_tfrecord if labeled else read_unlabeled_tfrecord, num_parallel_calls = AUTO))
+    
+    return dataset
+
+training_filenames = []
+training_filenames.append(GCS_DS_PATH + '/train_tfrecords/*.tfrec')
+TRAINING_FILENAMES = tf.io.gfile.glob(training_filenames)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;training-1&quot;&gt;Training&lt;/h2&gt;
+
+&lt;p&gt;This is fairly easy stuff all you have do is to make sure what ever model or layers you are loading are hosted in GCS and model compilation should happen within the 
+scope of distributed strategy&lt;/p&gt;
+
+&lt;p&gt;Example structure of code&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def get_model():
+    load_all your model layers 
+    compile it here
+
+with tpu_strategy.scope():
+        model = get_model()
+
+model.fit()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Thats It now you know how to make use of TPU’s along with TFRecord format to get faster training&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="ML" /><summary type="html">Before I start let me first say this “TPUs are fast and with fast i mean crazy fast the biggest bottleneck for TPU is its data loading process”</summary></entry><entry><title type="html">Kubernetes Introduction</title><link href="http://localhost:4000/linux/kubernetes-introduction" rel="alternate" type="text/html" title="Kubernetes Introduction" /><published>2021-01-14T00:00:00+05:30</published><updated>2021-01-14T00:00:00+05:30</updated><id>http://localhost:4000/linux/kubernetes-introduction</id><content type="html" xml:base="http://localhost:4000/linux/kubernetes-introduction">&lt;p&gt;With this article I am starting a new series of blog about kubernetes I will be going in detail about kubernetes and will also deploy lots of projects and demos
 all the theoretical knowledge will be followed by sample code.&lt;/p&gt;
 
 &lt;p&gt;So Lets Start&lt;/p&gt;
@@ -39,12 +249,12 @@ Secret and configuration Management
 It is a PaaS&lt;/p&gt;
 
 &lt;p&gt;this is one of the biggest myth in many users mind that kubernetes can operate on hardware level but thats not true it operates on container level 
-But still it can provide some of the common PaaS offerings Such as Load Balancing, Deployment, Scaling, logging, monitoring etc&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="Linux" /><summary type="html">With this article I am starting a new series of blog about kubernetes I will be going in detail about kubernetes and will also deploy lots of projects and demos all the theoretical knowledge will be followed by sample code.</summary></entry><entry><title type="html">Top 0.1% EDA for metro-interstate-traffic-volume</title><link href="https://www.beginers.tech/linux/ml/traffic_volume_prediction" rel="alternate" type="text/html" title="Top 0.1% EDA for metro-interstate-traffic-volume" /><published>2020-12-18T00:00:00+05:30</published><updated>2020-12-18T00:00:00+05:30</updated><id>https://www.beginers.tech/linux/ml/traffic_volume_prediction</id><content type="html" xml:base="https://www.beginers.tech/linux/ml/traffic_volume_prediction">&lt;p&gt;This is my approach to metro-interstate-traffic-volume major feature of this EDA is its Data Cleaning step while Modeling Step was pretty Straight forward and think this is where you guys can 
+But still it can provide some of the common PaaS offerings Such as Load Balancing, Deployment, Scaling, logging, monitoring etc&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="Linux" /><summary type="html">With this article I am starting a new series of blog about kubernetes I will be going in detail about kubernetes and will also deploy lots of projects and demos all the theoretical knowledge will be followed by sample code.</summary></entry><entry><title type="html">Top 0.1% EDA for metro-interstate-traffic-volume</title><link href="http://localhost:4000/linux/ml/traffic_volume_prediction" rel="alternate" type="text/html" title="Top 0.1% EDA for metro-interstate-traffic-volume" /><published>2020-12-18T00:00:00+05:30</published><updated>2020-12-18T00:00:00+05:30</updated><id>http://localhost:4000/linux/ml/traffic_volume_prediction</id><content type="html" xml:base="http://localhost:4000/linux/ml/traffic_volume_prediction">&lt;p&gt;This is my approach to metro-interstate-traffic-volume major feature of this EDA is its Data Cleaning step while Modeling Step was pretty Straight forward and think this is where you guys can 
 improve and push the RMSE a bit lower.&lt;/p&gt;
 
-&lt;script src=&quot;https://gist.github.com/f71d45feb9c81ac63b53f813564c279e.js&quot;&gt; &lt;/script&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="ML" /><summary type="html">This is my approach to metro-interstate-traffic-volume major feature of this EDA is its Data Cleaning step while Modeling Step was pretty Straight forward and think this is where you guys can improve and push the RMSE a bit lower.</summary></entry><entry><title type="html">100% accuracy on Fake News Classifiaction problem</title><link href="https://www.beginers.tech/linux/ml/fake-news-detector" rel="alternate" type="text/html" title="100% accuracy on Fake News Classifiaction problem" /><published>2020-12-18T00:00:00+05:30</published><updated>2020-12-18T00:00:00+05:30</updated><id>https://www.beginers.tech/linux/ml/fake-news-detector</id><content type="html" xml:base="https://www.beginers.tech/linux/ml/fake-news-detector">&lt;p&gt;This is my approach to fake news classification challenge, If You ask me this was prettyu basic competion the trick was one of the test case ehich had no content so as usual my approach was to get as much content so i merged title and content column and that got me to 100% accuracy.&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/f71d45feb9c81ac63b53f813564c279e.js&quot;&gt; &lt;/script&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="ML" /><summary type="html">This is my approach to metro-interstate-traffic-volume major feature of this EDA is its Data Cleaning step while Modeling Step was pretty Straight forward and think this is where you guys can improve and push the RMSE a bit lower.</summary></entry><entry><title type="html">100% accuracy on Fake News Classifiaction problem</title><link href="http://localhost:4000/linux/ml/fake-news-detector" rel="alternate" type="text/html" title="100% accuracy on Fake News Classifiaction problem" /><published>2020-12-18T00:00:00+05:30</published><updated>2020-12-18T00:00:00+05:30</updated><id>http://localhost:4000/linux/ml/fake-news-detector</id><content type="html" xml:base="http://localhost:4000/linux/ml/fake-news-detector">&lt;p&gt;This is my approach to fake news classification challenge, If You ask me this was prettyu basic competion the trick was one of the test case ehich had no content so as usual my approach was to get as much content so i merged title and content column and that got me to 100% accuracy.&lt;/p&gt;
 
-&lt;script src=&quot;https://gist.github.com/e7f3a962817e027630e9a7e7a066eacf.js&quot;&gt; &lt;/script&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="ML" /><summary type="html">This is my approach to fake news classification challenge, If You ask me this was prettyu basic competion the trick was one of the test case ehich had no content so as usual my approach was to get as much content so i merged title and content column and that got me to 100% accuracy.</summary></entry><entry><title type="html">Pytorch Lightning Transfer Learning on custom dataset</title><link href="https://www.beginers.tech/linux/ml/pytorchlightning" rel="alternate" type="text/html" title="Pytorch Lightning Transfer Learning on custom dataset" /><published>2020-12-04T00:00:00+05:30</published><updated>2020-12-04T00:00:00+05:30</updated><id>https://www.beginers.tech/linux/ml/pytorchlightning</id><content type="html" xml:base="https://www.beginers.tech/linux/ml/pytorchlightning">&lt;p&gt;&lt;b&gt;Why use PyTorch Lightning when you already have PyTorch ?&lt;/b&gt;&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/e7f3a962817e027630e9a7e7a066eacf.js&quot;&gt; &lt;/script&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="ML" /><summary type="html">This is my approach to fake news classification challenge, If You ask me this was prettyu basic competion the trick was one of the test case ehich had no content so as usual my approach was to get as much content so i merged title and content column and that got me to 100% accuracy.</summary></entry><entry><title type="html">Pytorch Lightning Transfer Learning on custom dataset</title><link href="http://localhost:4000/linux/ml/pytorchlightning" rel="alternate" type="text/html" title="Pytorch Lightning Transfer Learning on custom dataset" /><published>2020-12-04T00:00:00+05:30</published><updated>2020-12-04T00:00:00+05:30</updated><id>http://localhost:4000/linux/ml/pytorchlightning</id><content type="html" xml:base="http://localhost:4000/linux/ml/pytorchlightning">&lt;p&gt;&lt;b&gt;Why use PyTorch Lightning when you already have PyTorch ?&lt;/b&gt;&lt;/p&gt;
 
 &lt;p&gt;Although PyTorch is great but when task becomes complex there’s lots of small mistakes that can happen this is where PyTorch Lightning shines it structures your training and preparation such thatits both extensible for advance users and easy to use for beginners&lt;/p&gt;
 
@@ -82,7 +292,7 @@ improve and push the RMSE a bit lower.&lt;/p&gt;
 &lt;p&gt;Training is as simple as calling trainer.fit in PyTorch Lightning&lt;/p&gt;
 
 &lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/posts/blog_8/image4.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="Linux" /><category term="ML" /><summary type="html">Why use PyTorch Lightning when you already have PyTorch ?</summary></entry><entry><title type="html">What are L1,L2 and L3 cache</title><link href="https://www.beginers.tech/linux/l1l2l3" rel="alternate" type="text/html" title="What are L1,L2 and L3 cache" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>https://www.beginers.tech/linux/l1l2l3</id><content type="html" xml:base="https://www.beginers.tech/linux/l1l2l3">&lt;p&gt;Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a huge bottle neck for Computers this problem is resolved by using something called CPU cache.&lt;/p&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_8/image4.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="Linux" /><category term="ML" /><summary type="html">Why use PyTorch Lightning when you already have PyTorch ?</summary></entry><entry><title type="html">What are L1,L2 and L3 cache</title><link href="http://localhost:4000/linux/l1l2l3" rel="alternate" type="text/html" title="What are L1,L2 and L3 cache" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>http://localhost:4000/linux/l1l2l3</id><content type="html" xml:base="http://localhost:4000/linux/l1l2l3">&lt;p&gt;Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a huge bottle neck for Computers this problem is resolved by using something called CPU cache.&lt;/p&gt;
 
 &lt;p&gt;In Computers mainly there are two type of memory&lt;/p&gt;
 
@@ -129,7 +339,7 @@ improve and push the RMSE a bit lower.&lt;/p&gt;
 
 &lt;p&gt;&lt;b&gt;Why CPU cache is faster?&lt;/b&gt;&lt;/p&gt;
 
-&lt;p&gt;Along side each cached line of memory there are extra memory cells that store part(or all ) of the address. therefore all the cells can be queried to see whether they have the particular line of memory that cpu wants and then data will dump it onto bus that connects the main memory to the processor core. this happens in less than a cycle, because it is much simpler&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="Linux" /><summary type="html">Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a huge bottle neck for Computers this problem is resolved by using something called CPU cache.</summary></entry><entry><title type="html">Use of O_SYNC flag while opening file</title><link href="https://www.beginers.tech/linux/osync" rel="alternate" type="text/html" title="Use of O_SYNC flag while opening file" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>https://www.beginers.tech/linux/osync</id><content type="html" xml:base="https://www.beginers.tech/linux/osync">&lt;p&gt;Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descriptor. It will create an open file description that refers to a file and a file descriptor that refers to that open file description. The file descriptor is used by other I/O functions to refer to the file.&lt;/p&gt;
+&lt;p&gt;Along side each cached line of memory there are extra memory cells that store part(or all ) of the address. therefore all the cells can be queried to see whether they have the particular line of memory that cpu wants and then data will dump it onto bus that connects the main memory to the processor core. this happens in less than a cycle, because it is much simpler&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="Linux" /><summary type="html">Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a huge bottle neck for Computers this problem is resolved by using something called CPU cache.</summary></entry><entry><title type="html">Use of O_SYNC flag while opening file</title><link href="http://localhost:4000/linux/osync" rel="alternate" type="text/html" title="Use of O_SYNC flag while opening file" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>http://localhost:4000/linux/osync</id><content type="html" xml:base="http://localhost:4000/linux/osync">&lt;p&gt;Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descriptor. It will create an open file description that refers to a file and a file descriptor that refers to that open file description. The file descriptor is used by other I/O functions to refer to the file.&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int open(const char *pathname, int flags, mode_t mode);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -152,7 +362,7 @@ improve and push the RMSE a bit lower.&lt;/p&gt;
 
 &lt;p&gt;Since Linux 2.6.33, proper O_SYNC support has been provided. However, to ensure backward binary compatibility, O_DSYNC was defined with the same value as the historical O_SYNC, and O_SYNC was defined as a new (two-bit) flag value that includes the O_DSYNC flag value.&lt;/p&gt;
 
-&lt;p&gt;This ensures that applications compiled against new headers get at least O_DSYNC semantics on pre-2.6.33 kernels.&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="Linux" /><summary type="html">Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descriptor. It will create an open file description that refers to a file and a file descriptor that refers to that open file description. The file descriptor is used by other I/O functions to refer to the file.</summary></entry><entry><title type="html">Why running ps command without options on shell shows only two entries</title><link href="https://www.beginers.tech/linux/pscommand" rel="alternate" type="text/html" title="Why running ps command without options on shell shows only two entries" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>https://www.beginers.tech/linux/pscommand</id><content type="html" xml:base="https://www.beginers.tech/linux/pscommand">&lt;p&gt;&lt;b&gt; What is ps command?&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;This ensures that applications compiled against new headers get at least O_DSYNC semantics on pre-2.6.33 kernels.&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="Linux" /><summary type="html">Opening a file in Linux is generally done by the help of open( ) system call. The open( ) function establishes the connection between a file and a file descriptor. It will create an open file description that refers to a file and a file descriptor that refers to that open file description. The file descriptor is used by other I/O functions to refer to the file.</summary></entry><entry><title type="html">Why running ps command without options on shell shows only two entries</title><link href="http://localhost:4000/linux/pscommand" rel="alternate" type="text/html" title="Why running ps command without options on shell shows only two entries" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>http://localhost:4000/linux/pscommand</id><content type="html" xml:base="http://localhost:4000/linux/pscommand">&lt;p&gt;&lt;b&gt; What is ps command?&lt;/b&gt;&lt;/p&gt;
 
 &lt;p&gt;ps also known as “Process status” is a command in linux which provides information about the current running process. ps command accepts several kinds of options like -&lt;/p&gt;
 
@@ -204,7 +414,7 @@ GNU options : which are preceded by double dash
 &lt;p&gt;ps command does not need any special permission like sudo because it reads the files present in /proc directory. The /proc directory is a special directory as it is the mount point of the proc filesystem which contains virtual files representing each process in the system with their pid as name.&lt;/p&gt;
 
 &lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/posts/blog_7/image4.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><summary type="html">What is ps command?</summary></entry><entry><title type="html">Deep Learning Approach in detecting Malware (STAMINA)</title><link href="https://www.beginers.tech/linux/ml/stamina" rel="alternate" type="text/html" title="Deep Learning Approach in detecting Malware (STAMINA)" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>https://www.beginers.tech/linux/ml/stamina</id><content type="html" xml:base="https://www.beginers.tech/linux/ml/stamina">&lt;p&gt;Intel Labs and Microsoft Threat Protection Intelligence Teams are collaborating to research the application of deep learning for malware threat detection. Intel and Microsoft have previously demonstrated that transfer learning from computer vision for malware analysis can achieve highly desirable classification performance.&lt;/p&gt;
+  &lt;img src=&quot;/assets/images/posts/blog_7/image4.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><summary type="html">What is ps command?</summary></entry><entry><title type="html">Deep Learning Approach in detecting Malware (STAMINA)</title><link href="http://localhost:4000/linux/ml/stamina" rel="alternate" type="text/html" title="Deep Learning Approach in detecting Malware (STAMINA)" /><published>2020-12-03T00:00:00+05:30</published><updated>2020-12-03T00:00:00+05:30</updated><id>http://localhost:4000/linux/ml/stamina</id><content type="html" xml:base="http://localhost:4000/linux/ml/stamina">&lt;p&gt;Intel Labs and Microsoft Threat Protection Intelligence Teams are collaborating to research the application of deep learning for malware threat detection. Intel and Microsoft have previously demonstrated that transfer learning from computer vision for malware analysis can achieve highly desirable classification performance.&lt;/p&gt;
 
 &lt;p&gt;The companies call the project STAMINA. The main aim of STAMINA (STAtic Malware-as-image Network Analysis) is to Leverage Deep learning techniques to avoid time-consuming manual feature engineering with high accuracy and low false positives.&lt;/p&gt;
 
@@ -229,7 +439,7 @@ GNU options : which are preceded by double dash
 &lt;figure class=&quot;&quot;&gt;
   &lt;img src=&quot;/assets/images/posts/blog_4/image4.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
 
-&lt;p&gt;This approach of malware classification resulted in accuracy upto 99% with 2.6% false positive rating. While this technique is revolutionary it is still in early stages. It’s extremely effective in analyzing small files but with large binaries STAMINA lags . The joint research encourages the use of deep transfer learning for the purpose of malware classification.&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="ML" /><summary type="html">Intel Labs and Microsoft Threat Protection Intelligence Teams are collaborating to research the application of deep learning for malware threat detection. Intel and Microsoft have previously demonstrated that transfer learning from computer vision for malware analysis can achieve highly desirable classification performance.</summary></entry><entry><title type="html">Ownership and permissions in linux</title><link href="https://www.beginers.tech/linux/owenership_and_permission" rel="alternate" type="text/html" title="Ownership and permissions in linux" /><published>2020-12-02T00:00:00+05:30</published><updated>2020-12-02T00:00:00+05:30</updated><id>https://www.beginers.tech/linux/owenership_and_permission</id><content type="html" xml:base="https://www.beginers.tech/linux/owenership_and_permission">&lt;p&gt;We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.&lt;/p&gt;
+&lt;p&gt;This approach of malware classification resulted in accuracy upto 99% with 2.6% false positive rating. While this technique is revolutionary it is still in early stages. It’s extremely effective in analyzing small files but with large binaries STAMINA lags . The joint research encourages the use of deep transfer learning for the purpose of malware classification.&lt;/p&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><category term="ML" /><summary type="html">Intel Labs and Microsoft Threat Protection Intelligence Teams are collaborating to research the application of deep learning for malware threat detection. Intel and Microsoft have previously demonstrated that transfer learning from computer vision for malware analysis can achieve highly desirable classification performance.</summary></entry><entry><title type="html">Ownership and permissions in linux</title><link href="http://localhost:4000/linux/owenership_and_permission" rel="alternate" type="text/html" title="Ownership and permissions in linux" /><published>2020-12-02T00:00:00+05:30</published><updated>2020-12-02T00:00:00+05:30</updated><id>http://localhost:4000/linux/owenership_and_permission</id><content type="html" xml:base="http://localhost:4000/linux/owenership_and_permission">&lt;p&gt;We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.&lt;/p&gt;
 
 &lt;p&gt;Linux like many other operating system is multi-user OS therefore to keep each users data safe and block unauthorized access linux enforces 2 level guard&lt;/p&gt;
 
@@ -331,80 +541,4 @@ a : all
   &lt;img src=&quot;/assets/images/posts/blog_1/image4.png&quot; alt=&quot;ls command demo &quot; /&gt;&lt;figcaption&gt;
       
 
-    &lt;/figcaption&gt;&lt;/figure&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><summary type="html">We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.</summary></entry><entry><title type="html">Systemd And Services</title><link href="https://www.beginers.tech/linux/systemd_and_services" rel="alternate" type="text/html" title="Systemd And Services" /><published>2020-12-02T00:00:00+05:30</published><updated>2020-12-02T00:00:00+05:30</updated><id>https://www.beginers.tech/linux/systemd_and_services</id><content type="html" xml:base="https://www.beginers.tech/linux/systemd_and_services">&lt;p&gt;What is systemd?&lt;/p&gt;
-
-&lt;p&gt;Systemd is a new Initialization system and service manager earlier initialization was done using something called SysVinit scripts but nowadays most of the linux distributions except few like Alpine, Gentoo have already shifted to systemd due to its simplicity and backwards compatibility with SysV.&lt;/p&gt;
-
-&lt;p&gt;To completely understand initialization system you would have to understand linux boot process&lt;/p&gt;
-
-&lt;p&gt;After BIOS completes hardware initialization it transfers control to bootloader.Bootloader then calls the kernel, Kernel loads initial RAM disks and looks for the root file system in system drives, once the kernel is set up it starts systemd initialization. Systemd is the first program called outside kernel space thus it has PID 1, systemd then prepares the userspace and brings OS to operational state by starting all other services.&lt;/p&gt;
-
-&lt;p&gt;What is systemctl ?&lt;/p&gt;
-
-&lt;p&gt;Systemctl is a tool to manage and control systemd service manager and init system. It helps executing tasks easily which otherwise would take a lot more time as it is easy to manage. Due to its wide adaptation it becomes necessary to get familiar with systemctl.&lt;/p&gt;
-
-&lt;p&gt;Managing services&lt;/p&gt;
-
-&lt;p&gt;Starting service&lt;/p&gt;
-
-&lt;p&gt;To start a service use start command with root previlages&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl start servicename.service
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;You can also use syntax like as systemctl is smart enough to figure it out&lt;/p&gt;
-
-&lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/posts/blog_2/image1.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
-
-&lt;p&gt;Checking status of a service&lt;/p&gt;
-
-&lt;p&gt;To get current status of service you can use status command&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl status servicename.service
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;It gives a great overview of service with information like PID, first few line of logs and cgroup hierarchy&lt;/p&gt;
-
-&lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/posts/blog_2/image2.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
-
-&lt;p&gt;Stoping service&lt;/p&gt;
-
-&lt;p&gt;To stop a service you can use stop command&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl stop servicename.service
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/posts/blog_2/image3.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
-
-&lt;p&gt;Restarting and reloading service&lt;/p&gt;
-
-&lt;p&gt;To restart a service you can use restart command&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl restart servicename.service
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;If service has capability to reload its config files then you can use reload command&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl reload servicename.service
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Enabling and Disabling Services&lt;/p&gt;
-
-&lt;p&gt;To automatically start a service while booting you can use enable command. This will create a symlink of unit file of service which systemd reads during initialization.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl enable servicename.service
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/posts/blog_2/image4.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
-
-&lt;p&gt;Similarly to disable a service you can use disable command this will delete the symlink created earlier&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl disable servicename.service
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/posts/blog_2/image5.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><summary type="html">What is systemd?</summary></entry></feed>
+    &lt;/figcaption&gt;&lt;/figure&gt;</content><author><name>Prashant Singh</name></author><category term="linux" /><summary type="html">We all have at some point experienced permission denied error, isn’t it frustrating so let’s understand how permissions in linux work.</summary></entry></feed>

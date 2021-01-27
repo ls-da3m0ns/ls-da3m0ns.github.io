@@ -1,0 +1,1018 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>            Tensorflow TPU and TFrecords | Beginers Tech      the Ultimate Techy !      </title>
+<meta name="description" content="Learn How to use TPU paired with TFrecords and speed up your model development">
+
+
+  <meta name="author" content="Prashant Singh">
+  
+  <meta property="article:author" content="Prashant Singh">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Beginers Tech | the Ultimate Techy !">
+<meta property="og:title" content="Tensorflow TPU and TFrecords">
+<meta property="og:url" content="http://localhost:4000/linux/ml/Tensorflow_TPU_and_Tfrecords">
+
+
+  <meta property="og:description" content="Learn How to use TPU paired with TFrecords and speed up your model development">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/posts/blog_12/image1.png">
+
+
+
+  <meta name="twitter:site" content="@ls_da3mons">
+  <meta name="twitter:title" content="Tensorflow TPU and TFrecords">
+  <meta name="twitter:description" content="Learn How to use TPU paired with TFrecords and speed up your model development">
+  <meta name="twitter:url" content="http://localhost:4000/linux/ml/Tensorflow_TPU_and_Tfrecords">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/posts/blog_12/image1.png">
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2021-01-27T00:00:00+05:30">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/linux/ml/Tensorflow_TPU_and_Tfrecords">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Prashant Singh",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="google-site-verification=u1WudUCX5MxBBYu26WTtlI7brgH_nOPBxyRyGz5sVis" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Beginers Tech | the Ultimate Techy ! Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<link rel="manifest" href="assets/images/site.webmanifest">
+<link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="assets/images/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="assets/images/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- end custom head snippets -->
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Tensorflow TPU and TFrecords | Beginers Tech the Ultimate Techy !</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Tensorflow TPU and TFrecords" />
+<meta name="author" content="Prashant Singh" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Learn How to use TPU paired with TFrecords and speed up your model development" />
+<meta property="og:description" content="Learn How to use TPU paired with TFrecords and speed up your model development" />
+<link rel="canonical" href="http://localhost:4000/linux/ml/Tensorflow_TPU_and_Tfrecords" />
+<meta property="og:url" content="http://localhost:4000/linux/ml/Tensorflow_TPU_and_Tfrecords" />
+<meta property="og:site_name" content="Beginers Tech the Ultimate Techy !" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-27T00:00:00+05:30" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Tensorflow TPU and TFrecords" />
+<meta name="twitter:site" content="@ls_da3mons" />
+<meta name="twitter:creator" content="@Prashant Singh" />
+<meta name="google-site-verification" content="google-site-verification=u1WudUCX5MxBBYu26WTtlI7brgH_nOPBxyRyGz5sVis" />
+<script type="application/ld+json">
+{"headline":"Tensorflow TPU and TFrecords","dateModified":"2021-01-27T00:00:00+05:30","datePublished":"2021-01-27T00:00:00+05:30","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/linux/ml/Tensorflow_TPU_and_Tfrecords"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/cli_logo.png"},"name":"Prashant Singh"},"url":"http://localhost:4000/linux/ml/Tensorflow_TPU_and_Tfrecords","author":{"@type":"Person","name":"Prashant Singh"},"description":"Learn How to use TPU paired with TFrecords and speed up your model development","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3WQQLGB76V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3WQQLGB76V');
+</script>
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/cli_logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Beginers Tech | the Ultimate Techy !
+          <span class="site-subtitle">Version 1.0</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://drive.google.com/file/d/1EMp7ihqtNIjf7_u01Spa9e9m02TtAsuZ/view?usp=sharing">Resume/CV</a>
+            </li><li class="masthead__menu-item">
+              <a href="/Blogs/">Blogs</a>
+            </li><li class="masthead__menu-item">
+              <a href="/Pages">Projects / Pages</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Blog Categories</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/assets/images/posts/blog_12/image1.png');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Tensorflow TPU and TFrecords
+
+        
+      </h1>
+      
+        <p class="page__lead">Before I start let me first say this “TPUs are fast and with fast i mean crazy fast the biggest bottleneck for TPU is its data loading process”
+</p>
+      
+      
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-01-27T00:00:00+05:30">January 27, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          10 minute read
+        
+      </span>
+    
+  </p>
+
+
+      
+      
+    </div>
+  
+  
+    <span class="page__hero-caption">
+</span>
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/prashant_singh_transparent.png" alt="Prashant Singh" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Prashant Singh</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Feeling Useless?  Imagine having a blog with awesome Content and still no views</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">localhost</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/ls-da3m0ns" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://beginers.tech" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/ls_da3m0ns" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="mailto:mail.prashantsingh.41@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Tensorflow TPU and TFrecords">
+    <meta itemprop="description" content="Before I start let me first say this “TPUs are fast and with fast i mean crazy fast the biggest bottleneck for TPU is its data loading process”">
+    <meta itemprop="datePublished" content="2021-01-27T00:00:00+05:30">
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Before I start let me first say this “TPUs are fast and with fast i mean crazy fast the biggest bottleneck for TPU is its data loading process”</p>
+
+<p>This article will be focused on how to combine TFrecod format with TPU processing to optimize data loading and minimize the training time</p>
+
+<h2 id="there-are-five-major-steps-to-keep-in-mind-when-you-are-using-tpu-in-tensorflow">There are Five major steps to keep in mind when you are using TPU in Tensorflow</h2>
+
+<ul>
+  <li>
+    <h4 id="tpu-initialization">TPU initialization</h4>
+  </li>
+  <li>
+    <h4 id="distribution-strategy">Distribution Strategy</h4>
+  </li>
+  <li>
+    <h4 id="data-type">Data Type</h4>
+  </li>
+  <li>
+    <h4 id="data-loading">Data loading</h4>
+  </li>
+  <li>
+    <h4 id="training">Training</h4>
+  </li>
+</ul>
+
+<h2 id="tpu-initialization-1">TPU initialization</h2>
+
+<p>Lets Start with TPU initialization, Its a very simple process and very important one the reason for this step is because TPU’s are multi node workers in the Cloud you dont have 
+direct access to them like you have with GPU’s and CPU’s so you need to initialize network connection to each TPU processing node.</p>
+
+<p>Below is an Example code to do so</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tpu = tf.distribute.cluster_resolver.TPUClusterResolver()
+tf.config.experimental_connect_to_cluster(tpu)
+tf.tpu.experimental.initialize_tpu_system(tpu)
+</code></pre></div></div>
+
+<h2 id="distribution-strategy-1">Distribution Strategy</h2>
+
+<p>Now as there are multiple devices to work with you need some distribution strategy so that you can take advantage of multiple processing nodes the concept of distribution strategy is similar to what you might use for multi GPU training</p>
+
+<p><a href="https://www.tensorflow.org/guide/distributed_training">Read More about distributed training here</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># instantiate a distribution strategy
+tpu_strategy = tf.distribute.experimental.TPUStrategy(tpu)
+AUTO = tf.data.experimental.AUTOTUNE
+REPLICAS = tpu_strategy.num_replicas_in_sync
+print(f'REPLICAS: {REPLICAS}')
+
+</code></pre></div></div>
+
+<h2 id="data-type-1">Data Type</h2>
+<p>Currently, only the tf.float32, tf.int32, tf.bfloat16, and tf.bool data types are supported on the TPU. Other common data types, such as tf.uint8, tf.string, and tf.int64, must be converted to one of the supported data types during data pre-processing. I mostly use float32 and personally never tried bfloat32 before but it should work just fine.</p>
+
+<h2 id="data-loading-1">Data Loading</h2>
+<p>This is by far the most important step in TPU training correct implementation can give you huge perfomance boost.</p>
+
+<h3 id="tensorflow-and-tpus-only-work-with-data-hosted-on-gcs-atleast-for-now">Tensorflow and TPU’s only work with data hosted on GCS atleast for now</h3>
+
+<p>If you are using existing dataset from tensorflow dataset use <code class="language-plaintext highlighter-rouge">try_gcs=True</code> flag to load data from GCS other wise my recomendation is to host your data in tfrecord format in GCS buckets 
+I personally use Kaggle to host dataset and get GCS path from kaggle kernel that’s just me you can always use your personal GCP account</p>
+
+<p>below is the example how i loaded Ranzcer competition dataset from gcs in tfrecord format</p>
+
+<p><strong>overview of code structure</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select tfrecord files to be used for data loading in my case i had 15 tfrecord files
+load it using tf.data.TFRecordDataset api 
+then map functions to decode labels and images and then convert it to particular data type 
+finally before training configure perfomance optimizing and neccesary steps for example batch,prefetch,shuffle,repeat etc
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def to_float32_2(image, label):
+    max_val = tf.reduce_max(label, axis=-1,keepdims=True)
+    cond = tf.equal(label, max_val)
+    label = tf.where(cond, tf.ones_like(label), tf.zeros_like(label))
+    return tf.cast(image, tf.float32), tf.cast(label, tf.int32)
+
+def to_float32(image, label):
+    return tf.cast(image, tf.float32), label
+
+def decode_image(image_data):
+    image = tf.image.decode_jpeg(image_data, channels=3)
+    image = tf.cast(image, tf.float32) / 255.0  # convert image to floats in [0, 1] range
+    image = tf.reshape(image, [1024,1024, 3]) # explicit size needed for TPU
+    return image
+
+
+def read_labeled_tfrecord(example):
+    # Create a dictionary describing the features.
+    LABELED_TFREC_FORMAT = {
+        "StudyInstanceUID"           : tf.io.FixedLenFeature([], tf.string),
+        "image"                      : tf.io.FixedLenFeature([], tf.string),
+        "ETT - Abnormal"             : tf.io.FixedLenFeature([], tf.int64), 
+        "ETT - Borderline"           : tf.io.FixedLenFeature([], tf.int64), 
+        "ETT - Normal"               : tf.io.FixedLenFeature([], tf.int64), 
+        "NGT - Abnormal"             : tf.io.FixedLenFeature([], tf.int64), 
+        "NGT - Borderline"           : tf.io.FixedLenFeature([], tf.int64), 
+        "NGT - Incompletely Imaged"  : tf.io.FixedLenFeature([], tf.int64), 
+        "NGT - Normal"               : tf.io.FixedLenFeature([], tf.int64), 
+        "CVC - Abnormal"             : tf.io.FixedLenFeature([], tf.int64), 
+        "CVC - Borderline"           : tf.io.FixedLenFeature([], tf.int64), 
+        "CVC - Normal"               : tf.io.FixedLenFeature([], tf.int64), 
+        "Swan Ganz Catheter Present" : tf.io.FixedLenFeature([], tf.int64),
+    }
+    example = tf.io.parse_single_example(example, LABELED_TFREC_FORMAT)
+    image = decode_image(example['image']) 
+    image= tf.image.resize(image, [IMAGE_SIZE[0],IMAGE_SIZE[0]])
+    uid= example["StudyInstanceUID"]
+    cvca = example["CVC - Abnormal"]
+    cvcb = example["CVC - Borderline"]
+    cvcn = example["CVC - Normal"]
+    etta = example["ETT - Abnormal"]
+    ettb = example["ETT - Borderline"]
+    ettn = example["ETT - Normal"]
+    ngta = example["NGT - Abnormal"]
+    ngtb = example["NGT - Borderline"]
+    ngti = example["NGT - Incompletely Imaged"]
+    ngtn = example["NGT - Normal"]
+    sgcp = example["Swan Ganz Catheter Present"]
+
+    label  = [etta, ettb, ettn, ngta, ngtb, ngti, ngtn,cvca, cvcb, cvcn , sgcp]
+    label=[tf.cast(i,tf.float32) for i in label]
+    return image,label # returns a dataset of (image, label) pairs
+
+def read_unlabeled_tfrecord(example):
+    UNLABELED_TFREC_FORMAT  = {
+    "StudyInstanceUID" : tf.io.FixedLenFeature([], tf.string),
+    "image" : tf.io.FixedLenFeature([], tf.string)
+    }
+    example = tf.io.parse_single_example(example, UNLABELED_TFREC_FORMAT)
+    image = decode_image(example['image'])
+    image= tf.image.resize(image, [IMAGE_SIZE[0],IMAGE_SIZE[0]])
+    image_name = example['StudyInstanceUID']
+    return image, image_name # returns a dataset of image(s)
+
+def read_labeled_tf_record(filenames, labeled=True, ordered=False):
+    ignore_order = tf.data.Options()
+    if not ordered:
+        ignore_order.experimental_deterministic = False # disable order, increase speed
+
+    dataset = tf.data.TFRecordDataset(filenames, num_parallel_reads=AUTO) # automatically interleaves reads from multiple files
+    dataset = dataset.with_options(ignore_order) # uses data as soon as it streams in, rather than in its original order
+    dataset = dataset.map(read_labeled_tfrecord if labeled else read_unlabeled_tfrecord, num_parallel_calls=AUTO)
+    return dataset
+
+def data_augment(image, label):
+    image = tf.image.random_flip_left_right(image , seed=SEED)
+    image = tf.image.random_flip_up_down(image, seed=SEED)
+    image = tf.image.random_brightness(image, max_delta=0.5) # Random brightness
+    image = tf.image.random_saturation(image, 0, 2, seed=SEED)
+    image = tf.image.adjust_saturation(image, 3)
+    
+    #image = tf.image.central_crop(image, central_fraction=0.5)
+    return image, label   
+
+def get_training_dataset(dataset):
+    dataset = dataset.shuffle(2048)
+    dataset = dataset.repeat() # the training dataset must repeat for several epochs
+    dataset = dataset.map(data_augment, num_parallel_calls=AUTO)
+    dataset = dataset.batch(BATCH_SIZE)
+    dataset = dataset.prefetch(AUTO) # prefetch next batch while training (autotune prefetch buffer size)
+    return dataset
+
+def get_validation_dataset(ordered=False):
+    dataset = load_dataset(VALIDATION_FILENAMES, labeled=True, ordered=ordered)
+    dataset = dataset.batch(BATCH_SIZE)
+    dataset = dataset.cache()
+    dataset = dataset.prefetch(AUTO) # prefetch next batch while training (autotune prefetch buffer size)
+    return dataset
+
+def get_test_dataset(ordered=False):
+    dataset = load_dataset(TEST_FILENAMES, labeled=False, ordered=ordered)
+    dataset = dataset.batch(BATCH_SIZE)
+    dataset = dataset.prefetch(AUTO) # prefetch next batch while training (autotune prefetch buffer size)
+    return dataset
+
+def load_dataset(filenames, labeled = True, ordered = False):
+    ignore_order = tf.data.Options()
+    
+    if not ordered:
+        ignore_order.experimental_deterministic = False
+    
+    dataset = (tf.data.TFRecordDataset(filenames, num_parallel_reads = AUTO).with_options(ignore_order).
+               map(read_labeled_tfrecord if labeled else read_unlabeled_tfrecord, num_parallel_calls = AUTO))
+    
+    return dataset
+
+training_filenames = []
+training_filenames.append(GCS_DS_PATH + '/train_tfrecords/*.tfrec')
+TRAINING_FILENAMES = tf.io.gfile.glob(training_filenames)
+
+</code></pre></div></div>
+
+<h2 id="training-1">Training</h2>
+
+<p>This is fairly easy stuff all you have do is to make sure what ever model or layers you are loading are hosted in GCS and model compilation should happen within the 
+scope of distributed strategy</p>
+
+<p>Example structure of code</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def get_model():
+    load_all your model layers 
+    compile it here
+
+with tpu_strategy.scope():
+        model = get_model()
+
+model.fit()
+</code></pre></div></div>
+
+<p>Thats It now you know how to make use of TPU’s along with TFRecord format to get faster training</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#linux" class="page__taxonomy-item" rel="tag">linux</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#ml" class="page__taxonomy-item" rel="tag">ML</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-01-27T00:00:00+05:30">January 27, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=%40ls_da3mons&text=Tensorflow+TPU+and+TFrecords%20http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fml%2FTensorflow_TPU_and_Tfrecords" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fml%2FTensorflow_TPU_and_Tfrecords" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fml%2FTensorflow_TPU_and_Tfrecords" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/linux/kubernetes-introduction" class="pagination--pager" title="Kubernetes Introduction
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/default_overlay.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/kubernetes-introduction" rel="permalink">Kubernetes Introduction
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-01-14T00:00:00+05:30">January 14, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">With this article I am starting a new series of blog about kubernetes I will be going in detail about kubernetes and will also deploy lots of projects and de...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/default_overlay.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/ml/fake-news-detector" rel="permalink">100% accuracy on Fake News Classifiaction problem
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-12-18T00:00:00+05:30">December 18, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">This is my approach to fake news classification challenge, If You ask me this was prettyu basic competion the trick was one of the test case ehich had no con...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/default_overlay.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/ml/traffic_volume_prediction" rel="permalink">Top 0.1% EDA for metro-interstate-traffic-volume
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-12-18T00:00:00+05:30">December 18, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">This is my approach to metro-interstate-traffic-volume major feature of this EDA is its Data Cleaning step while Modeling Step was pretty Straight forward an...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/default_overlay.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/ml/pytorchlightning" rel="permalink">Pytorch Lightning Transfer Learning on custom dataset
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-12-04T00:00:00+05:30">December 4, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Why use PyTorch Lightning when you already have PyTorch ?
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong></strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:mail.prashantsingh.41@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+          <li><a href="https://beginers.tech" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/ls_da3m0ns" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/ls-da3m0ns" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<!--<div class="page__footer-copyright">&copy; 2021 Prashant Singh. Supported by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+--->
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3WQQLGB76V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3WQQLGB76V');
+</script>
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'ls-da3m0ns/ls-da3m0ns.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+  </body>
+</html>

@@ -1,4 +1,4 @@
-I"û)
+I"ó-
 <div class="list__item">
   <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
     
@@ -36,6 +36,47 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">With this article I am starting a new series of blog about kubernetes I will be going in detail about kubernetes and will also deploy lots of projects and de...</p>
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/ml/Tensorflow_TPU_and_Tfrecords" rel="permalink">Tensorflow TPU and TFrecords
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2021-01-04T00:00:00+05:30">January 4, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          10 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Before I start let me first say this â€œTPUs are fast and with fast i mean crazy fast the biggest bottleneck for TPU is its data loading processâ€
+</p>
   </article>
 </div>
 
