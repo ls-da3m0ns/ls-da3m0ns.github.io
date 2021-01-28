@@ -48,19 +48,19 @@ var store = [{
         "teaser": "https://www.beginers.tech/assets/images/default_overlay.png"
       },{
         "title": "Top 0.1% EDA for metro-interstate-traffic-volume",
-        "excerpt":"This is my approach to metro-interstate-traffic-volume major feature of this EDA is its Data Cleaning step while Modeling Step was pretty Straight forward and think this is where you guys can  improve and push the RMSE a bit lower.     ","categories": ["linux","ML"],
+        "excerpt":"This is my approach to metro-interstate-traffic-volume major feature of this EDA is its Data Cleaning step while Modeling Step was pretty Straight forward and think this is where you guys can  improve and push the RMSE a bit lower.   This might take a few seconds to load     ","categories": ["linux","ML"],
         "tags": [],
         "url": "https://www.beginers.tech/linux/ml/traffic_volume_prediction",
         "teaser": "https://www.beginers.tech/assets/images/default_overlay.png"
       },{
         "title": "100% accuracy on Fake News Classifiaction problem ",
-        "excerpt":"This is my approach to fake news classification challenge, If You ask me this was prettyu basic competion the trick was one of the test case ehich had no content so as usual my approach was to get as much content so i merged title and content column and that got me to 100% accuracy.     ","categories": ["linux","ML"],
+        "excerpt":"This is my approach to fake news classification challenge, If You ask me this was prettyu basic competion the trick was one of the test case ehich had no content so as usual my approach was to get as much content so i merged title and content column and that got me to 100% accuracy.   This might take a few seconds to load     ","categories": ["linux","ML"],
         "tags": [],
         "url": "https://www.beginers.tech/linux/ml/fake-news-detector",
         "teaser": "https://www.beginers.tech/assets/images/default_overlay.png"
       },{
         "title": "Solar Radiation Prediction",
-        "excerpt":"This is my approach to Solar Radiation Prediction Challenge hosted on Dockship, My main focus was on EDA part rather than modeling but still a very basic approach got me below 18 RMSE on testing data that’s pretty awesome.     ","categories": ["linux","ML"],
+        "excerpt":"This is my approach to Solar Radiation Prediction Challenge hosted on Dockship, My main focus was on EDA part rather than modeling but still a very basic approach got me below 18 RMSE on testing data that’s pretty awesome.   This might take a few seconds to load     ","categories": ["linux","ML"],
         "tags": [],
         "url": "https://www.beginers.tech/linux/ml/solar-radiation-prediction",
         "teaser": "https://www.beginers.tech/assets/images/default_overlay.png"
