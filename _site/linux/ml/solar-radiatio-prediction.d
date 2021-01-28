@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>            What are L1,L2 and L3 cache | Beginers Tech      the Ultimate Techy !      </title>
-<meta name="description" content="L1,L2 and L3 cache demystified, What are L1,L2 and L3 cache">
+<!-- begin _includes/seo.html --><title>            Solar Radiation Prediction | Beginers Tech      the Ultimate Techy !      </title>
+<meta name="description" content="EDA on solar Radiation Dataset with basic modeling leading to below 18 RMSE on testing set">
 
 
   <meta name="author" content="Prashant Singh">
@@ -22,33 +22,33 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Beginers Tech | the Ultimate Techy !">
-<meta property="og:title" content="What are L1,L2 and L3 cache">
-<meta property="og:url" content="http://localhost:4000/linux/l1l2l3">
+<meta property="og:title" content="Solar Radiation Prediction">
+<meta property="og:url" content="http://localhost:4000/linux/ml/solar-radiatio-prediction">
 
 
-  <meta property="og:description" content="L1,L2 and L3 cache demystified, What are L1,L2 and L3 cache">
+  <meta property="og:description" content="EDA on solar Radiation Dataset with basic modeling leading to below 18 RMSE on testing set">
 
 
 
-  <meta property="og:image" content="http://localhost:4000/assets/images/posts/blog_5/image1.png">
+  <meta property="og:image" content="http://localhost:4000/assets/images/posts/blog_13/image_1.png">
 
 
 
   <meta name="twitter:site" content="@ls_da3mons">
-  <meta name="twitter:title" content="What are L1,L2 and L3 cache">
-  <meta name="twitter:description" content="L1,L2 and L3 cache demystified, What are L1,L2 and L3 cache">
-  <meta name="twitter:url" content="http://localhost:4000/linux/l1l2l3">
+  <meta name="twitter:title" content="Solar Radiation Prediction">
+  <meta name="twitter:description" content="EDA on solar Radiation Dataset with basic modeling leading to below 18 RMSE on testing set">
+  <meta name="twitter:url" content="http://localhost:4000/linux/ml/solar-radiatio-prediction">
 
   
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="http://localhost:4000/assets/images/posts/blog_5/image1.png">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/posts/blog_13/image_1.png">
   
 
   
 
 
 
-  <meta property="article:published_time" content="2020-12-03T00:00:00+05:30">
+  <meta property="article:published_time" content="2020-12-19T00:00:00+05:30">
 
 
 
@@ -59,7 +59,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/linux/l1l2l3">
+<link rel="canonical" href="http://localhost:4000/linux/ml/solar-radiatio-prediction">
 
 
 
@@ -133,25 +133,25 @@
 
 <!-- end custom head snippets -->
 <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>What are L1,L2 and L3 cache | Beginers Tech the Ultimate Techy !</title>
+<title>Solar Radiation Prediction | Beginers Tech the Ultimate Techy !</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="What are L1,L2 and L3 cache" />
+<meta property="og:title" content="Solar Radiation Prediction" />
 <meta name="author" content="Prashant Singh" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="L1,L2 and L3 cache demystified, What are L1,L2 and L3 cache" />
-<meta property="og:description" content="L1,L2 and L3 cache demystified, What are L1,L2 and L3 cache" />
-<link rel="canonical" href="http://localhost:4000/linux/l1l2l3" />
-<meta property="og:url" content="http://localhost:4000/linux/l1l2l3" />
+<meta name="description" content="EDA on solar Radiation Dataset with basic modeling leading to below 18 RMSE on testing set" />
+<meta property="og:description" content="EDA on solar Radiation Dataset with basic modeling leading to below 18 RMSE on testing set" />
+<link rel="canonical" href="http://localhost:4000/linux/ml/solar-radiatio-prediction" />
+<meta property="og:url" content="http://localhost:4000/linux/ml/solar-radiatio-prediction" />
 <meta property="og:site_name" content="Beginers Tech the Ultimate Techy !" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-12-03T00:00:00+05:30" />
+<meta property="article:published_time" content="2020-12-19T00:00:00+05:30" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="What are L1,L2 and L3 cache" />
+<meta property="twitter:title" content="Solar Radiation Prediction" />
 <meta name="twitter:site" content="@ls_da3mons" />
 <meta name="twitter:creator" content="@Prashant Singh" />
 <meta name="google-site-verification" content="google-site-verification=u1WudUCX5MxBBYu26WTtlI7brgH_nOPBxyRyGz5sVis" />
 <script type="application/ld+json">
-{"headline":"What are L1,L2 and L3 cache","dateModified":"2020-12-03T00:00:00+05:30","datePublished":"2020-12-03T00:00:00+05:30","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/linux/l1l2l3"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/cli_logo.png"},"name":"Prashant Singh"},"url":"http://localhost:4000/linux/l1l2l3","author":{"@type":"Person","name":"Prashant Singh"},"description":"L1,L2 and L3 cache demystified, What are L1,L2 and L3 cache","@context":"https://schema.org"}</script>
+{"headline":"Solar Radiation Prediction","dateModified":"2020-12-19T00:00:00+05:30","datePublished":"2020-12-19T00:00:00+05:30","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/linux/ml/solar-radiatio-prediction"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/cli_logo.png"},"name":"Prashant Singh"},"url":"http://localhost:4000/linux/ml/solar-radiatio-prediction","author":{"@type":"Person","name":"Prashant Singh"},"description":"EDA on solar Radiation Dataset with basic modeling leading to below 18 RMSE on testing set","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -234,18 +234,18 @@
 
 
 <div class="page__hero--overlay"
-  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/assets/images/posts/blog_5/image1.png');"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/assets/images/posts/blog_13/image_1.png');"
 >
   
     <div class="wrapper">
       <h1 id="page-title" class="page__title" itemprop="headline">
         
-          What are L1,L2 and L3 cache
+          Solar Radiation Prediction
 
         
       </h1>
       
-        <p class="page__lead">Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a huge bottle neck for Computers this problem is resolved by using something called CPU cache.
+        <p class="page__lead">This is my approach to Solar Radiation Prediction Challenge hosted on Dockship, My main focus was on EDA part rather than modeling but still a very basic approach got me below 18 RMSE on testing data that’s pretty awesome.
 </p>
       
       
@@ -255,7 +255,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2020-12-03T00:00:00+05:30">December 3, 2020</time>
+        <time datetime="2020-12-19T00:00:00+05:30">December 19, 2020</time>
       </span>
     
 
@@ -268,7 +268,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          5 minute read
+          less than 1 minute read
         
       </span>
     
@@ -411,9 +411,9 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="What are L1,L2 and L3 cache">
-    <meta itemprop="description" content="Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a huge bottle neck for Computers this problem is resolved by using something called CPU cache.">
-    <meta itemprop="datePublished" content="2020-12-03T00:00:00+05:30">
+    <meta itemprop="headline" content="Solar Radiation Prediction">
+    <meta itemprop="description" content="This is my approach to Solar Radiation Prediction Challenge hosted on Dockship, My main focus was on EDA part rather than modeling but still a very basic approach got me below 18 RMSE on testing data that’s pretty awesome.">
+    <meta itemprop="datePublished" content="2020-12-19T00:00:00+05:30">
     
 
     <div class="page__inner-wrap">
@@ -421,55 +421,10 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>Current generation Computer processors have processing speed of around 3Ghz, and while even high end RAM have speed of 2.4Ghz. As you can see this could be a huge bottle neck for Computers this problem is resolved by using something called CPU cache.</p>
+        This is my approach to Solar Radiation Prediction Challenge hosted on Dockship, My main focus was on EDA part rather than modeling but still a very basic approach got me below 18 RMSE on testing data that's pretty awesome.
 
-<p>In Computers mainly there are two type of memory</p>
 
-<p><b>DRAM (dynamic ram )</b></p>
-
-<p>These use capacitors and because of that they need to be constantly refreshed using electricity. DRAMs are generally slower than SRAM. A great example of DRAM is RAM.</p>
-
-<p><b>SRAM (static ram)</b></p>
-
-<p>SRAM uses flip flop thus having greater speed and does not need to be refreshed constantly, but SRAM are more expensive than DRAM. They are generally used in CPU cache.</p>
-
-<p>CPU cache is also called internal memory of CPU, it stores copies of data and instruction from RAM, CPU constantly needs files from RAM CPU cache acts as middle man and stores most frequently requested files by CPU thus increasing efficiency of processor.</p>
-
-<p>There are three types of CPU cache L1(further split into L1d (data) and L1i (instruction) ) L2 and L3</p>
-
-<p>In Linux based OS we can use lscpu command to get capacity of each type of cache</p>
-
-<figure class="">
-  <img src="/assets/images/posts/blog_5/image1.png" alt="" /></figure>
-
-<p><b>L1 cache</b></p>
-
-<p>It is located on the processor and every processor has its own L1 cache. L1 cache is the fastest cache in the computer and runs at the same speed as that of the processor.</p>
-
-<p>L1 cache is nowadays splitted between L1d (Data) and L1i (instruction)</p>
-
-<p><b>L2 cache</b></p>
-
-<p>L2 cache is also known as external cache, as the name suggests it is located outside the processor (core). It stores recent data accessed by CPU which are not stored in L1 cache. If the CPU can’t find data in L1 cache it looks in L2 cache.</p>
-
-<p><b>L3 cache</b></p>
-
-<p>L3 cache is also called shared cache as it is shared between all the processors. It stores recent data accessed by CPU which is not available in both L1 or L2 cache . If CPU doesn’t finds data here then it will have to request data from much slower memory RAM</p>
-
-<p><b>How cache stores data</b></p>
-
-<p>In every program, there are usually a few instructions that repeat again and again, whereas the rest are executed only once or twice. Those repeating part of code is sent straight to cache, But these codes lines are not consecutive so a “label” is assigned to each cache position, the label is equal to the position of that code line in the ROM. Hence when CPU ask for a code line</p>
-
-<p>first requested ROM possition is compared with all the labels in the cache. If there is a match (also called cache hit) then associated code line from cache is extracted.</p>
-
-<p>If there is no match (also called cache miss ) code is extracted from ROM, naturally in this case time taken will be more than usual.</p>
-
-<p>also a new entry is created in cache for each miss, and to create this space least-recently used cache entry is deleted</p>
-
-<p><b>Why CPU cache is faster?</b></p>
-
-<p>Along side each cached line of memory there are extra memory cells that store part(or all ) of the address. therefore all the cells can be queried to see whether they have the particular line of memory that cpu wants and then data will dump it onto bus that connects the main memory to the processor core. this happens in less than a cycle, because it is much simpler</p>
-
+<script src="https://gist.github.com/eb3b23c5f9dc34962b0724ee6bd81808.js"> </script>
         
       </section>
 
@@ -491,18 +446,18 @@
     
       
       
-      <a href="/categories/#linux" class="page__taxonomy-item" rel="tag">Linux</a><span class="sep">, </span>
+      <a href="/categories/#linux" class="page__taxonomy-item" rel="tag">linux</a><span class="sep">, </span>
     
       
       
-      <a href="/categories/#linux" class="page__taxonomy-item" rel="tag">linux</a>
+      <a href="/categories/#ml" class="page__taxonomy-item" rel="tag">ML</a>
     
     </span>
   </p>
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-12-03T00:00:00+05:30">December 3, 2020</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-12-19T00:00:00+05:30">December 19, 2020</time></p>
 
 
       </footer>
@@ -512,22 +467,22 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=%40ls_da3mons&text=What+are+L1%2CL2+and+L3+cache%20http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fl1l2l3" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=%40ls_da3mons&text=Solar+Radiation+Prediction%20http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fml%2Fsolar-radiatio-prediction" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fl1l2l3" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fml%2Fsolar-radiatio-prediction" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fl1l2l3" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Flinux%2Fml%2Fsolar-radiatio-prediction" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/linux/systemd_and_units" class="pagination--pager" title="Systemd and Units
+      <a href="/linux/ml/fake-news-detector" class="pagination--pager" title="100% accuracy on Fake News Classifiaction problem
 ">Previous</a>
     
     
-      <a href="/linux/osync" class="pagination--pager" title="Use of O_SYNC flag while opening file
+      <a href="/linux/kubernetes-introduction" class="pagination--pager" title="Kubernetes Introduction
 ">Next</a>
     
   </nav>
@@ -655,55 +610,6 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/linux/ml/solar-radiatio-prediction" rel="permalink">Solar Radiation Prediction
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2020-12-19T00:00:00+05:30">December 19, 2020</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">This is my approach to Solar Radiation Prediction Challenge hosted on Dockship, My main focus was on EDA part rather than modeling but still a very basic app...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src="/assets/images/default_overlay.png" alt="">
-      </div>
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
         <a href="/linux/ml/fake-news-detector" rel="permalink">100% accuracy on Fake News Classifiaction problem
 </a>
       
@@ -736,6 +642,55 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">This is my approach to fake news classification challenge, If You ask me this was prettyu basic competion the trick was one of the test case ehich had no con...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/default_overlay.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/ml/traffic_volume_prediction" rel="permalink">Top 0.1% EDA for metro-interstate-traffic-volume
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-12-18T00:00:00+05:30">December 18, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">This is my approach to metro-interstate-traffic-volume major feature of this EDA is its Data Cleaning step while Modeling Step was pretty Straight forward an...</p>
   </article>
 </div>
 
