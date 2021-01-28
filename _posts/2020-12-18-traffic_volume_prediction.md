@@ -10,4 +10,8 @@ header:
 This is my approach to metro-interstate-traffic-volume major feature of this EDA is its Data Cleaning step while Modeling Step was pretty Straight forward and think this is where you guys can 
 improve and push the RMSE a bit lower.  
 
+
+
+## This might take a few seconds to load 
+
 {% gist f71d45feb9c81ac63b53f813564c279e %}

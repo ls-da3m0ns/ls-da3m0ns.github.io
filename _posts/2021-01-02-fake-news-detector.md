@@ -9,4 +9,7 @@ header:
 
 This is my approach to fake news classification challenge, If You ask me this was prettyu basic competion the trick was one of the test case ehich had no content so as usual my approach was to get as much content so i merged title and content column and that got me to 100% accuracy.  
 
+
+## This might take a few seconds to load 
+
 {% gist e7f3a962817e027630e9a7e7a066eacf %}

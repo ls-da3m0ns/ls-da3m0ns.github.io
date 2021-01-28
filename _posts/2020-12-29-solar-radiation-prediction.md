@@ -9,5 +9,6 @@ header:
 
 This is my approach to Solar Radiation Prediction Challenge hosted on Dockship, My main focus was on EDA part rather than modeling but still a very basic approach got me below 18 RMSE on testing data that's pretty awesome.
 
+## This might take a few seconds to load 
 
 {% gist eb3b23c5f9dc34962b0724ee6bd81808 %}
