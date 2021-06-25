@@ -2,7 +2,7 @@
 title:  "Categories"
 layout: archive
 permalink: /categories/
-description: "Latest Tech and Machine Learning Blogs With a bit of Data Science as well"
+description: "Latest DevOps and Machine Learning Blogs With a bit of Data Science as well"
 author_profile: true
 comments: true
 ---

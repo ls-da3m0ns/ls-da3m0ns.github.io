@@ -16,18 +16,18 @@ minimal_mistakes_skin    : "air" # "dark" ,air", "aqua", "contrast", "default", 
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Beginers Tech | the Ultimate Techy !"
+title                    : "Real Developers"
 title_separator          : "|"
-subtitle                 : "Version 1.0" # site tagline that appears below site title in masthead
+subtitle                 : "Explore and Learn" # site tagline that appears below site title in masthead
 name                     : "Prashant Singh"
-description              : "Stuff that nobody is talking about !  "
-url                      : "https://www.beginers.tech" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+description              : "Exprience the fun of explore and learning"
+url                      : "https://www.realdevs.in" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  :  # the subpath of your site, e.g. "/blog"
 repository               : "ls-da3m0ns/ls-da3m0ns.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 head_scripts             : # add cdn scripts
 
 teaser                   : "/assets/images/default_overlay.png" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/cli_logo.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : "/assets/images/realdevs_nobg1.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 100
@@ -111,7 +111,7 @@ author:
       url: "https://github.com/ls-da3m0ns"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://beginers.tech"
+      url: "https://www.realdevs.in"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/ls_da3m0ns"
@@ -127,7 +127,7 @@ footer:
       url: "mailto:mail.prashantsingh.41@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://beginers.tech"
+      url: "https://www.realdevs.in"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/ls_da3m0ns"
